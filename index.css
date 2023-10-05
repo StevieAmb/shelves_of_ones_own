@@ -28,11 +28,13 @@ body {
   height: 65%;
   width: 35%;
   background-color: rgba(84, 26, 26, 0.527);
+  box-shadow: 4px 1px 18px black;
 }
 
 .shelf {
   width: 85%;
   height: 22%;
+  box-shadow: 4px 8px 16px 4px rgba(40, 10, 10, 0.527) inset;
   background-color:rgba(58, 16, 16, 0.527);
 }
 
