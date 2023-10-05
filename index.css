@@ -5,9 +5,32 @@ body {
 }
 
 .user-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   width: 20%;
   background-color: purple;
   border: 2px solid purple;
+  
+}
+
+#user-avatar {
+  margin: 3rem 0;
+  height: 10rem;
+  width: 7rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.user-button {
+  padding: 9px 18px;
+  border-radius: 5px;
+  background-color: goldenrod;
+}
+
+p {
+  color: white;
 }
 
 #room {
