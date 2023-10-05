@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+}
+
+.user-aside {
+  width: 20%;
+  background-color: purple;
+  border: 2px solid purple;
+}
+
+#room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+  background-color: rgb(159, 116, 164);
+}
+
+#bookshelf {
+  height: 60%;
+  width: 35%;
+  background-color: rgba(84, 26, 26, 0.527);
+}
+
+footer {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
