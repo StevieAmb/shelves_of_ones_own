@@ -20,9 +20,20 @@ body {
 }
 
 #bookshelf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: .7rem;
   height: 60%;
   width: 35%;
   background-color: rgba(84, 26, 26, 0.527);
+}
+
+.shelf {
+  width: 75%;
+  height: 20%;
+  background-color: black;
 }
 
 footer {
