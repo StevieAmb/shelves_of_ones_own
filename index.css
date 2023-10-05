@@ -28,7 +28,7 @@ body {
   height: 65%;
   width: 35%;
   background-color: rgba(84, 26, 26, 0.527);
-  box-shadow: 4px 1px 18px black;
+  box-shadow: 5px .5px 14px black;
 }
 
 .shelf {
