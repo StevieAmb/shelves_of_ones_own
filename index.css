@@ -55,6 +55,10 @@ p {
 }
 
 .shelf {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
   width: 85%;
   height: 22%;
   box-shadow: 4px 8px 16px 4px rgba(40, 10, 10, 0.527) inset;
@@ -76,4 +80,25 @@ p {
   color: black;
   padding-bottom: 10px;
   margin: 0;
+}
+
+.purple {
+  background-color: purple;
+  width: 20px;
+  height: 60px;
+  border: 1px solid black;
+}
+
+.yellow {
+  background-color: yellow;
+  width: 50px;
+  height: 80px;
+  border: 1px solid black;
+}
+
+.pink {
+  background-color: pink;
+  width: 40px;
+  height: 90px;
+  border: 1px solid black;
 }
