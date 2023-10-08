@@ -91,7 +91,7 @@ p {
 
 .purple:hover {
   width: 30px;
-  height: 150px;
+  height: 100px;
   box-shadow: -6px 16px 10px rgb(58, 2, 58);
 }
 
@@ -104,7 +104,7 @@ p {
 
 .yellow:hover {
   width: 40px;
-  height: 150px;
+  height: 100px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
