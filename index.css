@@ -89,7 +89,7 @@ p {
   border: 1px solid rgb(57, 8, 61);
 }
 
-.purple:hover {
+.purple:hover, .purple:focus {
   width: 30px;
   height: 100px;
   box-shadow: -6px 16px 10px rgb(58, 2, 58);
@@ -102,7 +102,7 @@ p {
   border: 1px solid rgb(68, 65, 16);
 }
 
-.yellow:hover {
+.yellow:hover, .yellow:focus {
   width: 40px;
   height: 100px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
