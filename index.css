@@ -85,20 +85,39 @@ p {
 .purple {
   background-color: purple;
   width: 20px;
-  height: 60px;
-  border: 1px solid black;
+  height: 70px;
+  border: 1px solid rgb(57, 8, 61);
+}
+
+.purple:hover {
+  width: 30px;
+  height: 150px;
+  box-shadow: -6px 16px 10px rgb(58, 2, 58);
 }
 
 .yellow {
   background-color: yellow;
-  width: 50px;
-  height: 80px;
-  border: 1px solid black;
+  width: 30px;
+  height: 60px;
+  border: 1px solid rgb(92, 89, 22);
+}
+
+.yellow:hover {
+  width: 40px;
+  height: 150px;
+  box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
 .pink {
   background-color: pink;
   width: 40px;
-  height: 90px;
-  border: 1px solid black;
+  height: 80px;
+  border: 1px solid rgb(88, 35, 72);
+}
+
+.red {
+  background-color: red;
+  width: 36px;
+  height: 72px;
+  border: 1px solid rgb(88, 18, 29);
 }
