@@ -1,6 +1,5 @@
-class User {
+class Owner {
   constructor() {
-    this.bookCount = 0;
     this.room = new Room(this.bookCounts)
   }
 
