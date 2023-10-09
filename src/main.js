@@ -1,11 +1,11 @@
+
+
 let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
-let numberOfBooksRead = 0
 
 const addBook = () => {
   shelfOne.innerHTML += `<div class=${randomizeBook()} tabIndex="0"></div>`
   console.log('Book added!')
-  numberOfBooksRead++
 }
 
 

@@ -1,9 +1,12 @@
 class User {
-  constructor(name, image, count) {
-    this.name = name;
-    this.avatar = image;
-    this.bookCount = count
+  constructor() {
+    this.bookCount = 0;
+    this.room = new Room(this.bookCounts)
   }
 
-  
+  addBooks = () => {
+    this.room.bookshelf.numOfBooks++
+  }
+
+
 }
