@@ -1,5 +1,5 @@
 class Room {
   constructor() {
-    this.bookshelf = new Bookshelf(books)
+    this.bookshelf = new Bookshelf()
   }
 }

@@ -1,14 +1,18 @@
-let newOwner = new Owner()
+
 
 let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 
 
 const addBook = () => {
-  newOwner.addBooks()
-  for(let i = 0; i === newOwner.room.bookshelf.numOfBooks; i++) {
+  let newOwner = new Owner()
+  let addedBooks = newOwner.addBooks()
+  console.log('weird', addedBooks)
+  for(let i = 0; i < addedBooks; i++) {
     shelfOne.innerHTML += `<div class=${randomizeBook()} tabIndex="0"></div>`
+    console.log('huh', addedBooks)
   }
+  console.log('clicked')
 }
 
 
