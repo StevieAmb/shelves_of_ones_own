@@ -1,9 +1,10 @@
-class Bookshelf {
-  constructor() {
-    this.numOfBooks = 0
+export class Bookshelf {
+  constructor(count) {
+    this.numOfBooks = count
   }
 
   getBooks = () => {
     console.log('books class', this.numOfBooks)
   }
 }
+

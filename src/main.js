@@ -1,8 +1,13 @@
-
+import { Owner } from "./owner"
+import { Room } from "./room"
+import { Bookshelf}  from "./bookshelf"
 
 let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 
+let Room;
+let Owner;
+let Bookshelf
 
 const addBook = () => {
   let newOwner = new Owner()

@@ -1,12 +1,11 @@
-class Owner {
+export class Owner {
   constructor() {
+    this.bookCounts = 0
     this.room = new Room(this.bookCounts)
   }
 
   addBooks = () => {
-    this.room.bookshelf.getBooks()
-    this.room.bookshelf.numOfBooks++
-
-    console.log('you worked', this.room.bookshelf.numOfBooks )
+    this.bookCounts++
+    return this.bookCounts
   }
 }
