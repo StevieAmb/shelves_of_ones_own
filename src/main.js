@@ -1,5 +1,7 @@
 let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
+let removeBookButton = document.getElementById('remove-button-el')
+let books = document.querySelectorAll('article')
 
 
 class Bookshelf {
@@ -21,9 +23,24 @@ class Owner {
 let newOwner = new Owner()
 
 const addBook = () => {
-  shelfOne.innerHTML += `<div class=${randomizeBook()} tabIndex="0"></div>`
+  shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
+  console.log('books on shelf', newOwner.bookshelf.bookCount)
+  displayRemoveButton()
 }
+
+const displayRemoveButton = () => {
+  if(newOwner.bookshelf.bookCount > 0) {
+    removeBookButton.classList.remove('hidden')
+  }
+}
+
+const removeBook = () => {
+  console.log('shelf innards', shelfOne)
+
+}
+
+
 
 const randomizeBook = () => {
   const books = ['purple', 'yellow', 'pink', 'red']
@@ -33,3 +50,4 @@ const randomizeBook = () => {
 }
 
 addBookButton.addEventListener('click', addBook)
+removeBookButton.addEventListener('click', removeBook)

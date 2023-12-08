@@ -121,3 +121,7 @@ p {
   height: 72px;
   border: 1px solid rgb(88, 18, 29);
 }
+
+.hidden {
+  display: none;
+}
