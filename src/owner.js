@@ -1,11 +1,9 @@
-export class Owner {
-  constructor() {
-    this.bookCounts = 0
-    this.room = new Room(this.bookCounts)
-  }
+import Bookshelf from './bookshelf'
 
-  addBooks = () => {
-    this.bookCounts++
-    return this.bookCounts
+class Owner {
+  constructor(blah) {
+    this.bookshelf = new Bookshelf(blah)
   }
 }
+
+export default Owner;

@@ -1,10 +1,7 @@
-export class Bookshelf {
-  constructor(count) {
-    this.numOfBooks = count
-  }
-
-  getBooks = () => {
-    console.log('books class', this.numOfBooks)
+class Bookshelf {
+  constructor(blah) {
+    this.bookCount = 0 || bookCount
   }
 }
 
+export default Bookshelf;
