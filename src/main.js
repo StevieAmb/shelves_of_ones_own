@@ -26,13 +26,14 @@ let newOwner = new Owner()
 const addBook = () => {
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
-  console.log('books on shelf', newOwner.bookshelf.bookCount)
   displayRemoveButton()
 }
 
 const displayRemoveButton = () => {
   if(newOwner.bookshelf.bookCount > 0) {
     removeBookButton.classList.remove('hidden')
+  } else {
+    removeBookButton.classList.add('hidden')
   }
 }
 
@@ -42,15 +43,13 @@ const removeBook = () => {
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
-  console.log('shelf innards', shelfOne)
-  // shelfOne.removeChild(books)
-  console.log('book', books[books.length - 1])
 }
 
 
 
 const randomizeBook = () => {
   const books = ['purple', 'yellow', 'pink', 'red']
+  //brown, green, orange
 
   let index = Math.floor(Math.random() * books.length)
   return books[index]
