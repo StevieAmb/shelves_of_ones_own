@@ -2,6 +2,7 @@ let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 let books = document.querySelectorAll('article')
+console.log(books)
 
 
 class Bookshelf {
@@ -36,8 +37,14 @@ const displayRemoveButton = () => {
 }
 
 const removeBook = () => {
+  let books = document.querySelectorAll('article')
+  let book = books[books.length - 1]
+  if(book.parentNode) {
+    book.parentNode.removeChild(book)
+  }
   console.log('shelf innards', shelfOne)
-
+  // shelfOne.removeChild(books)
+  console.log('book', books[books.length - 1])
 }
 
 
