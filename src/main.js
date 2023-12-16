@@ -37,11 +37,16 @@ class Owner {
 let newOwner = new Owner()
 
 const addBook = () => {
+  disableAddBookButton()
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
   newOwner.bookshelf.saveBooksToStorage()
   addBookTitle()
   displayRemoveButton()
+}
+
+const disableAddBookButton = () => {
+  !addTitleInput.value && addBookButton.classList.add('disabled')
 }
 
 const displayRemoveButton = () => {

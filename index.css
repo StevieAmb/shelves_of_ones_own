@@ -173,6 +173,8 @@ article {
 }
 
 article:hover, article:focus {
+  display: flex;
+  justify-content: center;
   font-size: medium;
 } 
 
