@@ -118,7 +118,7 @@ p {
 .red:hover, .red:focus {
   width: 46px;
   height: 112px;
-  box-shadow: -6px 16px 15px rgb(76, 59, 2);
+  box-shadow: -6px 16px 15px rgb(39, 7, 2);
 }
 
 .blue {

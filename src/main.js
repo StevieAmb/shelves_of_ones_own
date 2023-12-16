@@ -31,7 +31,6 @@ class Owner {
     this.bookCount = 0
     this.bookshelf = new Bookshelf(blah)
   }
-
 }
 
 let newOwner = new Owner()
@@ -55,6 +54,7 @@ const removeBook = () => {
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
+  newOwner.bookshelf.bookCount--
 }
 
 const randomizeBook = () => {
