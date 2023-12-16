@@ -1,14 +1,27 @@
 let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
-let books = document.querySelectorAll('article')
-console.log(books)
+const clearShelf = document.getElementById('clear-shelf')
 
 
 class Bookshelf {
   constructor(blah) {
     this.shelves = 3;
     this.bookCount = 0
+  }
+
+  saveBooksToStorage = () => {
+    localStorage.setItem('numOfBooks', JSON.stringify(this.bookCount));
+  }
+
+  retrieveBooksFromStorage = () => {
+    let parsedBookCount = ''
+    parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
+    return parsedBookCount;
+  }
+
+  clearShelf = () => {
+    localStorage.clear()
   }
   
 }
@@ -26,14 +39,14 @@ let newOwner = new Owner()
 const addBook = () => {
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
-  console.log('books on shelf', newOwner.bookshelf.bookCount)
+  newOwner.bookshelf.saveBooksToStorage()
   displayRemoveButton()
 }
 
 const displayRemoveButton = () => {
   if(newOwner.bookshelf.bookCount > 0) {
     removeBookButton.classList.remove('hidden')
-  }
+  } 
 }
 
 const removeBook = () => {
@@ -42,15 +55,10 @@ const removeBook = () => {
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
-  console.log('shelf innards', shelfOne)
-  // shelfOne.removeChild(books)
-  console.log('book', books[books.length - 1])
 }
 
-
-
 const randomizeBook = () => {
-  const books = ['purple', 'yellow', 'pink', 'red']
+  const books = ['yellow', 'red', 'blue', 'green', 'orange', 'purple']
 
   let index = Math.floor(Math.random() * books.length)
   return books[index]
@@ -58,3 +66,4 @@ const randomizeBook = () => {
 
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
+// clearShelf.addEventListener('click', clearTheShelf)
