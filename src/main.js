@@ -48,13 +48,20 @@ const displayRemoveButton = () => {
   } 
 }
 
+const hideRemoveButton = () => {
+  if (newOwner.bookshelf.bookCount < 1) {
+    removeBookButton.classList.add('hidden')
+  }
+}
+
 const removeBook = () => {
+  newOwner.bookshelf.bookCount--
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
-  newOwner.bookshelf.bookCount--
+  hideRemoveButton()
 }
 
 const randomizeBook = () => {

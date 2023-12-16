@@ -161,7 +161,7 @@ p {
 }
 
 .orange:hover, .orange:focus {
-  width: 25px;
+  width: 35px;
   height: 80px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
