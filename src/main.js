@@ -2,6 +2,7 @@ let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
+const addTitleInput = document.getElementById('add-book-title')
 
 
 class Bookshelf {
@@ -39,6 +40,7 @@ const addBook = () => {
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
   newOwner.bookshelf.saveBooksToStorage()
+  addBookTitle()
   displayRemoveButton()
 }
 
@@ -64,6 +66,13 @@ const removeBook = () => {
   hideRemoveButton()
 }
 
+const addBookTitle = () => {
+  let books = document.querySelectorAll('article')
+  let book = books[books.length - 1]
+  book.innerHTML = `<p class="book-title">${addTitleInput.value}</p>`
+  addTitleInput.value = ""
+}
+
 const randomizeBook = () => {
   const books = ['yellow', 'red', 'blue', 'green', 'orange', 'purple']
 
@@ -73,4 +82,3 @@ const randomizeBook = () => {
 
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
-// clearShelf.addEventListener('click', clearTheShelf)

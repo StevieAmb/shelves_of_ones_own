@@ -166,6 +166,21 @@ p {
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
+article {
+  display: flex;
+  justify-content: center;
+  overflow: overlay;
+}
+
+.book-title {
+  transform: rotate(90deg);
+  padding: 14.5px;
+}
+
+.book-title:hover, .book-title:focus {
+  padding-left: 3.5px;
+} 
+
 
 .hidden {
   display: none;
