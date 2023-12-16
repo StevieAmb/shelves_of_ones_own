@@ -84,84 +84,84 @@ p {
 
 .purple {
   background-color: purple;
-  width: 20px;
+  width: 35px;
   height: 70px;
   border: 1px solid rgb(57, 8, 61);
   border-radius: 2.5px;
 }
 
 .purple:hover, .purple:focus {
-  width: 30px;
+  width: 45px;
   height: 100px;
   box-shadow: -6px 16px 10px rgb(58, 2, 58);
 }
 
 .yellow {
   background-color: yellow;
-  width: 30px;
+  width: 45px;
   height: 60px;
   border: 1px solid rgb(68, 65, 16);
   border-radius: 2.5px;
 }
 
 .yellow:hover, .yellow:focus {
-  width: 40px;
+  width: 55px;
   height: 100px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
 .red {
   background-color: rgb(221, 41, 41);
-  width: 36px;
+  width: 51px;
   height: 72px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
 }
 
 .red:hover, .red:focus {
-  width: 46px;
+  width: 61px;
   height: 112px;
   box-shadow: -6px 16px 15px rgb(39, 7, 2);
 }
 
 .blue {
   background-color: rgb(64, 64, 211);
-  width: 25px;
+  width: 40px;
   height: 63px;
   border: 1px solid rgb(21, 9, 52);
   border-radius: 2.5px;
 }
 
 .blue:hover, .blue:focus {
-  width: 35px;
+  width: 50px;
   height: 93px;
   box-shadow: -6px 16px 15px rgb(14, 3, 32);
 }
 
 .green {
   background-color: green;
-  width: 15px;
+  width: 30px;
   height: 50px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
 }
 
 .green:hover, .green:focus {
-  width: 25px;
+  width: 40px;
   height: 80px;
   box-shadow: -6px 16px 15px rgb(1, 47, 19);
 }
 
 .orange {
   background-color: orange;
-  width: 25px;
+  width: 43px;
   height: 58px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
 }
 
 .orange:hover, .orange:focus {
-  width: 35px;
+  width: 53px;
   height: 80px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
@@ -169,18 +169,19 @@ p {
 article {
   display: flex;
   justify-content: center;
-  overflow: overlay;
+  overflow: hidden;
 }
+
+article:hover, article:focus {
+  font-size: medium;
+} 
 
 .book-title {
   transform: rotate(90deg);
-  padding: 14.5px;
+  text-align: center;
+  margin-right: 55px;
+  text-shadow: 1px 1px 1px rgb(88, 82, 82);
 }
-
-.book-title:hover, .book-title:focus {
-  padding-left: 3.5px;
-} 
-
 
 .hidden {
   display: none;
