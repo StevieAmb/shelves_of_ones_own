@@ -2,6 +2,7 @@ body {
   display: flex;
   margin: 0;
   height: 100vh;
+  font-family: Comic Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .user-aside {
@@ -118,6 +119,10 @@ p {
   border-radius: 2.5px;
 }
 
+.red p {
+  margin-right: 10px;
+}
+
 .red:hover, .red:focus {
   width: 61px;
   height: 112px;
@@ -160,6 +165,10 @@ p {
   border-radius: 2.5px;
 }
 
+.orange p {
+  margin-right: 20px;
+}
+
 .orange:hover, .orange:focus {
   width: 53px;
   height: 80px;
@@ -178,11 +187,21 @@ article:hover, article:focus {
   font-size: medium;
 } 
 
+:root {
+  background: rgba(165, 42, 42, 0.82);
+}
+
 .book-title {
   transform: rotate(90deg);
   text-align: center;
   margin-right: 55px;
-  text-shadow: 1px 1px 1px rgb(88, 82, 82);
+  background-color: #3d2f2f;
+  font: 15px 'Futura';
+  /* color: transparent; */
+  text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 
 .hidden {
