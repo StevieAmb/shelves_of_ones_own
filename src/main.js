@@ -73,12 +73,12 @@ const removeBook = () => {
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
-  book.innerHTML = `<p class="book-title">${addTitleInput.value}</p>`
+  book.innerHTML = `<p>${addTitleInput.value}</p>`
   addTitleInput.value = ""
 }
 
 const randomizeBook = () => {
-  const books = ['yellow', 'red', 'blue', 'green', 'orange', 'purple']
+  const books = ['red']
 
   let index = Math.floor(Math.random() * books.length)
   return books[index]
