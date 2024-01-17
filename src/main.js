@@ -73,7 +73,7 @@ const removeBook = () => {
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
-  book.innerHTML = `<p>${addTitleInput.value}</p>`
+  book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
   addTitleInput.value = ""
 }
 
