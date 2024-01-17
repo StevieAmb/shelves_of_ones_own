@@ -2,6 +2,7 @@ let shelfOne = document.getElementById('shelf-one')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
+const addTitleInput = document.getElementById('add-book-title')
 
 
 class Bookshelf {
@@ -38,8 +39,13 @@ let newOwner = new Owner()
 const addBook = () => {
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   newOwner.bookshelf.bookCount++
+  addBookTitle()
   newOwner.bookshelf.saveBooksToStorage()
   displayRemoveButton()
+}
+
+const enableAddBookButton = () => {
+  !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
 }
 
 const displayRemoveButton = () => {
@@ -48,17 +54,31 @@ const displayRemoveButton = () => {
   } 
 }
 
+const hideRemoveButton = () => {
+  if (newOwner.bookshelf.bookCount < 1) {
+    removeBookButton.classList.add('hidden')
+  }
+}
+
 const removeBook = () => {
+  newOwner.bookshelf.bookCount--
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
-  newOwner.bookshelf.bookCount--
+  hideRemoveButton()
+}
+
+const addBookTitle = () => {
+  let books = document.querySelectorAll('article')
+  let book = books[books.length - 1]
+  book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
+  addTitleInput.value = ""
 }
 
 const randomizeBook = () => {
-  const books = ['yellow', 'red', 'blue', 'green', 'orange', 'purple']
+  const books = ['blue']
 
   let index = Math.floor(Math.random() * books.length)
   return books[index]
@@ -66,4 +86,4 @@ const randomizeBook = () => {
 
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
-// clearShelf.addEventListener('click', clearTheShelf)
+addTitleInput.addEventListener('keydown', enableAddBookButton)

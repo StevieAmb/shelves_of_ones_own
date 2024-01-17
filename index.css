@@ -2,6 +2,7 @@ body {
   display: flex;
   margin: 0;
   height: 100vh;
+  font-family: 'Times New Roman', Times, serif
 }
 
 .user-aside {
@@ -84,88 +85,178 @@ p {
 
 .purple {
   background-color: purple;
-  width: 20px;
+  width: 35px;
   height: 70px;
   border: 1px solid rgb(57, 8, 61);
   border-radius: 2.5px;
 }
 
 .purple:hover, .purple:focus {
-  width: 30px;
+  width: 45px;
   height: 100px;
   box-shadow: -6px 16px 10px rgb(58, 2, 58);
 }
 
 .yellow {
   background-color: yellow;
-  width: 30px;
+  width: 45px;
   height: 60px;
   border: 1px solid rgb(68, 65, 16);
   border-radius: 2.5px;
 }
 
 .yellow:hover, .yellow:focus {
-  width: 40px;
+  width: 55px;
   height: 100px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
 .red {
+  display: flex;
+  flex-wrap: wrap;
   background-color: rgb(221, 41, 41);
-  width: 36px;
+  width: 51px;
   height: 72px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
+  text-align: center;
 }
 
 .red:hover, .red:focus {
-  width: 46px;
+  width: 61px;
   height: 112px;
   box-shadow: -6px 16px 15px rgb(39, 7, 2);
 }
 
+.red p {
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  font: .45rem "Fira Sans", sans-serif;
+  text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.red p:hover, .red p:focus {
+  transform: rotate(90deg);
+  font: 10px/2 cursive;
+  line-height: 15px;
+  font-weight: bold;
+  width: 250%;
+  height: 100%;
+  margin: 0 0 0 -60px;
+  overflow: auto;
+}
+
 .blue {
   background-color: rgb(64, 64, 211);
-  width: 25px;
+  width: 40px;
   height: 63px;
   border: 1px solid rgb(21, 9, 52);
   border-radius: 2.5px;
 }
 
 .blue:hover, .blue:focus {
-  width: 35px;
+  width: 50px;
   height: 93px;
   box-shadow: -6px 16px 15px rgb(14, 3, 32);
 }
 
+.blue p {
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  font: .45rem "Fira Sans", sans-serif;
+  text-shadow: 0px 2px 3px rgba(92, 95, 163, 0.765);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.blue p:hover, .red p:focus {
+  transform: rotate(90deg);
+  font: 8px/2 cursive;
+  line-height: 15px;
+  font-weight: bold;
+  width: 250%;
+  height: 100%;
+  margin: 8px 0 0 -60px;
+  overflow: auto;
+}
+
 .green {
   background-color: green;
-  width: 15px;
+  width: 30px;
   height: 50px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
 }
 
+.green p {
+  transform: rotate(90deg);
+  color: #3d2f2f;
+  font: 12px 'Futura';
+  margin-right: 15px;
+  text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
 .green:hover, .green:focus {
-  width: 25px;
+  width: 40px;
   height: 80px;
   box-shadow: -6px 16px 15px rgb(1, 47, 19);
 }
 
 .orange {
   background-color: orange;
-  width: 25px;
+  width: 43px;
   height: 58px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
 }
 
+.orange p {
+  margin-right: 20px;
+}
+
 .orange:hover, .orange:focus {
-  width: 25px;
+  width: 53px;
   height: 80px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
+article {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+article:hover, article:focus {
+  display: flex;
+  justify-content: center;
+  font-size: medium;
+} 
+
+:root {
+  background: rgba(165, 42, 42, 0.82);
+}
+
+/* .book-title {
+  transform: rotate(90deg);
+  text-align: center;
+  background-color: #3d2f2f;
+  font: 15px 'Futura';
+  text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+} */
 
 .hidden {
   display: none;
