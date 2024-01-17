@@ -142,10 +142,13 @@ p {
 
 .red p:hover, .red p:focus {
   transform: rotate(90deg);
-  font: 14px/2 cursive;
+  font: 10px/2 cursive;
+  line-height: 15px;
+  font-weight: bold;
   width: 250%;
   height: 100%;
-  margin: 15px 0 5px -80px;
+  margin: 0 0 0 -60px;
+  overflow: auto;
 }
 
 .blue {
