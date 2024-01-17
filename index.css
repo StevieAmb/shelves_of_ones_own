@@ -2,7 +2,7 @@ body {
   display: flex;
   margin: 0;
   height: 100vh;
-  font-family: Comic Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  font-family: 'Times New Roman', Times, serif
 }
 
 .user-aside {
@@ -112,11 +112,14 @@ p {
 }
 
 .red {
+  display: flex;
+  flex-wrap: wrap;
   background-color: rgb(221, 41, 41);
   width: 51px;
   height: 72px;
   border: 1px solid rgb(88, 18, 29);
   border-radius: 2.5px;
+  text-align: center;
 }
 
 .red:hover, .red:focus {
@@ -129,8 +132,8 @@ p {
   color: black;
   width: 100%;
   height: 100%;
-  font: 10px 'Arial';
-  margin: 5px 0 0 1px;
+  padding: 2px;
+  font: .45rem "Fira Sans", sans-serif;
   text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -139,7 +142,7 @@ p {
 
 .red p:hover, .red p:focus {
   transform: rotate(90deg);
-  font: 16px 'Arial';
+  font: 14px/2 cursive;
   width: 250%;
   height: 100%;
   margin: 15px 0 5px -80px;
@@ -205,7 +208,7 @@ p {
 article {
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 article:hover, article:focus {
