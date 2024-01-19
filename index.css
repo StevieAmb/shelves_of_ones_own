@@ -166,7 +166,8 @@ p {
 }
 
 .blue p {
-  color: black;
+  color: white;
+  letter-spacing: 2px;
   width: 100%;
   height: 100%;
   padding: 2px;
@@ -179,7 +180,8 @@ p {
 
 .blue p:hover, .red p:focus {
   transform: rotate(90deg);
-  font: 8px/2 cursive;
+  font: 9px/2 italic;
+  letter-spacing: 3px;
   line-height: 15px;
   font-weight: bold;
   width: 250%;
@@ -196,7 +198,15 @@ p {
   border-radius: 2.5px;
 }
 
+.green:hover, .green:focus {
+  width: 40px;
+  height: 80px;
+  box-shadow: -6px 16px 15px rgb(1, 47, 19);
+}
+
 .green p {
+  width: 100%;
+  height: 100%;
   transform: rotate(90deg);
   color: #3d2f2f;
   font: 12px 'Futura';
@@ -207,11 +217,6 @@ p {
   background-clip: text;
 }
 
-.green:hover, .green:focus {
-  width: 40px;
-  height: 80px;
-  box-shadow: -6px 16px 15px rgb(1, 47, 19);
-}
 
 .orange {
   background-color: orange;
