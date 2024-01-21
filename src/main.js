@@ -78,7 +78,7 @@ const addBookTitle = () => {
 }
 
 const randomizeBook = () => {
-  const books = ['blue']
+  const books = ['red', 'blue', 'green']
 
   let index = Math.floor(Math.random() * books.length)
   return books[index]

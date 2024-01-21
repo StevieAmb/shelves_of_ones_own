@@ -144,6 +144,7 @@ p {
   transform: rotate(90deg);
   font: 10px/2 cursive;
   line-height: 15px;
+  letter-spacing: 3px;
   font-weight: bold;
   width: 250%;
   height: 100%;
@@ -207,10 +208,9 @@ p {
 .green p {
   width: 100%;
   height: 100%;
-  transform: rotate(90deg);
   color: #3d2f2f;
-  font: 12px 'Futura';
-  margin-right: 15px;
+  font: .55rem "Fira Sans", sans-serif;
+  margin-right: 7px;
   text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
   -webkit-background-clip: text;
   -moz-background-clip: text;
