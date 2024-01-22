@@ -217,18 +217,6 @@ p {
   background-clip: text;
 }
 
-.blue p:hover, .red p:focus {
-  transform: rotate(90deg);
-  font: 9px/2 italic;
-  letter-spacing: 3px;
-  line-height: 15px;
-  font-weight: bold;
-  width: 250%;
-  height: 100%;
-  margin: 8px 0 0 -60px;
-  overflow: auto;
-
-
 .orange {
   background-color: orange;
   width: 43px;
@@ -239,6 +227,18 @@ p {
 
 .orange p {
   margin-right: 20px;
+}
+
+.blue p:hover, .red p:focus {
+  transform: rotate(90deg);
+  font: 9px/2 italic;
+  letter-spacing: 3px;
+  line-height: 15px;
+  font-weight: bold;
+  width: 250%;
+  height: 100%;
+  margin: 8px 0 0 -60px;
+  overflow: auto;
 }
 
 .orange:hover, .orange:focus {
