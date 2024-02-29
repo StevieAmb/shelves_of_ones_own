@@ -1,5 +1,6 @@
 let shelfOne = document.getElementById('shelf-one')
 let shelfTwo = document.getElementById('shelf-two')
+let shelfThree = document.getElementById('shelf-three')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
@@ -46,8 +47,10 @@ const addBook = () => {
   newOwner.addBook()
   if(newOwner.bookCount < 10) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  } else if(newOwner.bookCount > 10) {
+  } else if(newOwner.bookCount > 10 && newOwner.bookCount < 20) {
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  } else {
+    shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
   addBookTitle()
   displayRemoveButton()
