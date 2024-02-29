@@ -10,6 +10,16 @@ class Bookshelf {
     this.shelves = 3;
     this.bookCount = 0
   }
+}
+
+class Owner {
+  constructor(blah) {
+    this.bookCount = 0
+  }
+
+  addBook = () => {
+    this.bookCount++
+  }
 
   saveBooksToStorage = () => {
     localStorage.setItem('numOfBooks', JSON.stringify(this.bookCount));
@@ -24,21 +34,13 @@ class Bookshelf {
   clearShelf = () => {
     localStorage.clear()
   }
-  
-}
-
-class Owner {
-  constructor(blah) {
-    this.bookCount = 0
-    this.bookshelf = new Bookshelf(blah)
-  }
 }
 
 let newOwner = new Owner()
 
 const addBook = () => {
+  newOwner.addBook()
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  newOwner.bookshelf.bookCount++
   addBookTitle()
   newOwner.bookshelf.saveBooksToStorage()
   displayRemoveButton()
