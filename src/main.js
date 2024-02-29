@@ -1,14 +1,28 @@
 let shelfOne = document.getElementById('shelf-one')
+let shelfTwo = document.getElementById('shelf-two')
+let shelfThree = document.getElementById('shelf-three')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
+const bookCount = document.getElementById('bookCount')
 
 
 class Bookshelf {
   constructor(blah) {
     this.shelves = 3;
     this.bookCount = 0
+  }
+}
+
+class Owner {
+  constructor(blah) {
+    this.bookCount = 0
+  }
+
+  addBook = () => {
+    this.bookCount++
+    this.saveBooksToStorage()
   }
 
   saveBooksToStorage = () => {
@@ -23,25 +37,32 @@ class Bookshelf {
 
   clearShelf = () => {
     localStorage.clear()
-  }
-  
-}
-
-class Owner {
-  constructor(blah) {
     this.bookCount = 0
-    this.bookshelf = new Bookshelf(blah)
   }
 }
 
 let newOwner = new Owner()
 
 const addBook = () => {
-  shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  newOwner.bookshelf.bookCount++
+  newOwner.addBook()
+  if(newOwner.bookCount <= 10) {
+    shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  } else if(newOwner.bookCount > 10 && newOwner.bookCount <= 20) {
+    shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  } else {
+    shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  }
   addBookTitle()
-  newOwner.bookshelf.saveBooksToStorage()
   displayRemoveButton()
+  updateBookCount()
+}
+
+const updateBookCount = () => {
+  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
+  // for(let i = 0; i < newOwner.retrieveBooksFromStorage(); i++) {
+  //   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  // }
+  // newOwner.clearShelf()
 }
 
 const enableAddBookButton = () => {
@@ -84,6 +105,8 @@ const randomizeBook = () => {
   return books[index]
 }
 
+window.addEventListener('onload', updateBookCount());
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
+
