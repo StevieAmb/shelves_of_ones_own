@@ -3,6 +3,7 @@ let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
+const bookCount = document.getElementById('bookCount')
 
 
 class Bookshelf {
@@ -19,6 +20,7 @@ class Owner {
 
   addBook = () => {
     this.bookCount++
+    this.saveBooksToStorage()
   }
 
   saveBooksToStorage = () => {
@@ -42,8 +44,15 @@ const addBook = () => {
   newOwner.addBook()
   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   addBookTitle()
-  newOwner.bookshelf.saveBooksToStorage()
   displayRemoveButton()
+  updateBookCount()
+}
+
+const updateBookCount = () => {
+  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
+  for(let i = 0; i < newOwner.retrieveBooksFromStorage(); i++) {
+    shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  }
 }
 
 const enableAddBookButton = () => {
@@ -86,6 +95,12 @@ const randomizeBook = () => {
   return books[index]
 }
 
+window.addEventListener('onload', updateBookCount());
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
+
+//So, we're going to have a spot where we put the book count
+//Then, we're going to display it to the user
+//Then, we're going to use the winCount to 
+//move the books down to the next shelf.
