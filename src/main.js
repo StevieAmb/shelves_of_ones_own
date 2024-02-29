@@ -43,11 +43,29 @@ class Owner {
 
 let newOwner = new Owner()
 
+const updateBookCount = () => {
+  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
+  newOwner.saveBooksToStorage()
+} 
+
+const loadShelves = () => {
+  loadShelfOne()
+}
+
+const loadShelfOne = () => {
+  let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
+  for(let i = 0; i < savedBooks; i++) {
+    if(savedBooks <= 9) {
+      shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+    }
+  }
+}
+
 const addBook = () => {
   newOwner.addBook()
-  if(newOwner.bookCount <= 10) {
+  if(newOwner.bookCount <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  } else if(newOwner.bookCount > 10 && newOwner.bookCount <= 20) {
+  } else if(newOwner.bookCount > 9 && newOwner.bookCount <= 19) {
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -57,12 +75,6 @@ const addBook = () => {
   updateBookCount()
 }
 
-const updateBookCount = () => {
-  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
-  newOwner.retrieveBooksFromStorage()
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
-  console.log(savedBooks)
-  } 
 
 
 const enableAddBookButton = () => {
@@ -105,7 +117,10 @@ const randomizeBook = () => {
   return books[index]
 }
 
-window.addEventListener('onload', updateBookCount());
+window.addEventListener('onload', () => {
+  updateBookCount()
+  loadShelves()
+});
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
