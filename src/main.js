@@ -54,12 +54,17 @@ const loadShelves = () => {
 
 const loadShelfOne = () => {
   let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
-  for(let i = 0; i < savedBooks; i++) {
-    if(savedBooks <= 9) {
+  for(let i = savedBooks; i < savedBooks; i++) {
+    if(i < 10) {
       shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     }
   }
 }
+
+//So, we are starting with a whole number, and we don't know how many.
+//Let's say the number is one, on load, there's going to be one book, and the 
+//iterator is going to iterate on it going backwards, in order to load the books
+//
 
 const addBook = () => {
   newOwner.addBook()
