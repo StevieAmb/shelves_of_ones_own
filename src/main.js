@@ -45,9 +45,9 @@ let newOwner = new Owner()
 
 const addBook = () => {
   newOwner.addBook()
-  if(newOwner.bookCount < 10) {
+  if(newOwner.bookCount <= 10) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  } else if(newOwner.bookCount > 10 && newOwner.bookCount < 20) {
+  } else if(newOwner.bookCount > 10 && newOwner.bookCount <= 20) {
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
