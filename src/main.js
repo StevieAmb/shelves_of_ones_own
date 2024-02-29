@@ -1,4 +1,5 @@
 let shelfOne = document.getElementById('shelf-one')
+let shelfTwo = document.getElementById('shelf-two')
 let addBookButton = document.getElementById('add-button-el')
 let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
@@ -35,6 +36,7 @@ class Owner {
 
   clearShelf = () => {
     localStorage.clear()
+    this.bookCount = 0
   }
 }
 
@@ -42,7 +44,11 @@ let newOwner = new Owner()
 
 const addBook = () => {
   newOwner.addBook()
-  shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  if(newOwner.bookCount < 10) {
+    shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  } else if(newOwner.bookCount > 10) {
+    shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  }
   addBookTitle()
   displayRemoveButton()
   updateBookCount()
@@ -50,9 +56,10 @@ const addBook = () => {
 
 const updateBookCount = () => {
   bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
-  for(let i = 0; i < newOwner.retrieveBooksFromStorage(); i++) {
-    shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  }
+  // for(let i = 0; i < newOwner.retrieveBooksFromStorage(); i++) {
+  //   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  // }
+  // newOwner.clearShelf()
 }
 
 const enableAddBookButton = () => {
@@ -100,7 +107,3 @@ addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 
-//So, we're going to have a spot where we put the book count
-//Then, we're going to display it to the user
-//Then, we're going to use the winCount to 
-//move the books down to the next shelf.
