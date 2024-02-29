@@ -59,18 +59,18 @@ const addBook = () => {
 
 const updateBookCount = () => {
   bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
-  // for(let i = 0; i < newOwner.retrieveBooksFromStorage(); i++) {
-  //   shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  // }
-  // newOwner.clearShelf()
-}
+  newOwner.retrieveBooksFromStorage()
+  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
+  console.log(savedBooks)
+  } 
+
 
 const enableAddBookButton = () => {
   !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
 }
 
 const displayRemoveButton = () => {
-  if(newOwner.bookshelf.bookCount > 0) {
+  if(newOwner.bookCount > 0) {
     removeBookButton.classList.remove('hidden')
   } 
 }
