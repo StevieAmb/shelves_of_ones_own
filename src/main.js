@@ -44,20 +44,20 @@ class Owner {
 let newOwner = new Owner()
 
 const updateBookCount = () => {
+  newOwner.retrieveBooksFromStorage()
   bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
-  newOwner.saveBooksToStorage()
 } 
 
-const loadShelves = () => {
-  loadShelfOne()
-}
+// const loadShelves = () => {
+//   loadShelfOne()
+// }
 
-const loadShelfOne = () => {
+const loadShelves = () => {
   let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
-  for(let i = savedBooks; i < savedBooks; i++) {
-    if(i < 10) {
+  for(let i = 0; i < savedBooks; i++) {
+    if(i <= 10) {
       shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-    }
+    } else if (i >= 11 && i <  }
   }
 }
 
