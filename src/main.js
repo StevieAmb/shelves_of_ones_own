@@ -43,11 +43,34 @@ class Owner {
 
 let newOwner = new Owner()
 
+const updateBookCount = () => {
+  newOwner.retrieveBooksFromStorage()
+  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
+} 
+
+// const loadShelves = () => {
+//   loadShelfOne()
+// }
+
+const loadShelves = () => {
+  let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
+  for(let i = 0; i < savedBooks; i++) {
+    if(i <= 10) {
+      shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+    } else if (i >= 11 && i <  }
+  }
+}
+
+//So, we are starting with a whole number, and we don't know how many.
+//Let's say the number is one, on load, there's going to be one book, and the 
+//iterator is going to iterate on it going backwards, in order to load the books
+//
+
 const addBook = () => {
   newOwner.addBook()
-  if(newOwner.bookCount <= 10) {
+  if(newOwner.bookCount <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  } else if(newOwner.bookCount > 10 && newOwner.bookCount <= 20) {
+  } else if(newOwner.bookCount > 9 && newOwner.bookCount <= 19) {
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -57,12 +80,6 @@ const addBook = () => {
   updateBookCount()
 }
 
-const updateBookCount = () => {
-  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
-  newOwner.retrieveBooksFromStorage()
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
-  console.log(savedBooks)
-  } 
 
 
 const enableAddBookButton = () => {
@@ -105,7 +122,10 @@ const randomizeBook = () => {
   return books[index]
 }
 
-window.addEventListener('onload', updateBookCount());
+window.addEventListener('onload', () => {
+  updateBookCount()
+  loadShelves()
+});
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
