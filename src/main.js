@@ -7,14 +7,6 @@ const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
 
-
-class Bookshelf {
-  constructor(blah) {
-    this.shelves = 3;
-    this.bookCount = 0
-  }
-}
-
 class Owner {
   constructor(blah) {
     this.bookCount = 0
@@ -44,8 +36,14 @@ class Owner {
 let newOwner = new Owner()
 
 const updateBookCount = () => {
-  newOwner.retrieveBooksFromStorage()
-  bookCount.innerHTML = newOwner.retrieveBooksFromStorage() || 0
+  console.log('what are you outside of if?', newOwner.retrieveBooksFromStorage())
+  let savedBooks = newOwner.retrieveBooksFromStorage()
+  if(savedBooks) {
+    console.log('what are you?', newOwner.retrieveBooksFromStorage())
+    bookCount.textContent = newOwner.retrieveBooksFromStorage()
+  } else {
+    bookCount.textContent = 0
+  }
 } 
 
 // const loadShelves = () => {
@@ -126,10 +124,12 @@ const randomizeBook = () => {
   return books[index]
 }
 
-window.addEventListener('onload', () => {
+const loadBooks = () => {
   updateBookCount()
   loadShelves()
-});
+}
+
+window.onload = loadBooks()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
