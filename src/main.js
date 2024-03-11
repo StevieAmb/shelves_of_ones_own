@@ -9,7 +9,7 @@ const bookCount = document.getElementById('bookCount')
 
 class Owner {
   constructor(blah) {
-    this.bookCount = 0
+    this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0
   }
 
   addBook = () => {
@@ -36,19 +36,14 @@ class Owner {
 let newOwner = new Owner()
 
 const updateBookCount = () => {
-  console.log('what are you outside of if?', newOwner.retrieveBooksFromStorage())
-  let savedBooks = newOwner.retrieveBooksFromStorage()
+  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
   if(savedBooks) {
-    console.log('what are you?', newOwner.retrieveBooksFromStorage())
     bookCount.textContent = newOwner.retrieveBooksFromStorage()
   } else {
     bookCount.textContent = 0
   }
 } 
 
-// const loadShelves = () => {
-//   loadShelfOne()
-// }
 
 const loadShelves = () => {
   let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
@@ -63,17 +58,12 @@ const loadShelves = () => {
   }
 }
 
-//So, we are starting with a whole number, and we don't know how many.
-//Let's say the number is one, on load, there's going to be one book, and the 
-//iterator is going to iterate on it going backwards, in order to load the books
-//
-
 const addBook = () => {
   newOwner.addBook()
   let savedBooks = parseInt(newOwner.retrieveBooksFromStorage)
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-  } else if(savedBooks > 9 && savedBooks <= 19) {
+  } else if(savedBooks >=10 && savedBooks <= 19) {
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
