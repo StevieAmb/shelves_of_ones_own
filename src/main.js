@@ -10,7 +10,7 @@ const bookCount = document.getElementById('bookCount')
 class Owner {
   constructor(blah) {
     this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0;
-    this.titles = this.retrieveTitlesFromStorage || [];
+    this.titles = this.retrieveTitlesFromStorage() || [];
   }
 
   addBook = () => {
@@ -18,12 +18,19 @@ class Owner {
     this.saveBooksToStorage()
   }
 
+  addTitle = (title) => {
+    this.titles.push(title)
+    this.saveTitlesToStorage()
+  }
+
   saveTitlesToStorage = () => {
     localStorage.setItem('titles', JSON.stringify(this.titles))
   }
 
   retrieveTitlesFromStorage = () => {
-    let parsedTitles = JSON.parse(localStorage.getItem('titles'))
+    let parsedTitles = ''
+    parsedTitles = JSON.parse(localStorage.getItem('titles'))
+    console.log('parsed', parsedTitles)
     return parsedTitles;
   }
 
@@ -32,8 +39,7 @@ class Owner {
   }
 
   retrieveBooksFromStorage = () => {
-    let parsedBookCount = ''
-    parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
+    let parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
     return parsedBookCount;
   }
 
@@ -56,7 +62,7 @@ const updateBookCount = () => {
 
 
 const loadShelves = () => {
-  let titles = newOwner.titles ? newOwner.retrieveTitlesFromStorage() : null
+  let titles = newOwner.retrieveTitlesFromStorage()
   let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
   for(let i = 0; i < savedBooks; i++) {
     if(i <= 10) {
@@ -113,9 +119,9 @@ const removeBook = () => {
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
+  newOwner.addTitle(addTitleInput.value.toUpperCase())
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
   newOwner.titles.push(addTitleInput.value.toUpperCase())
-  console.log(newOwner.titles)
   addTitleInput.value = ""
 }
 
