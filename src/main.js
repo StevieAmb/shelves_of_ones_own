@@ -50,10 +50,10 @@ const loadShelves = () => {
   for(let i = 0; i < savedBooks; i++) {
     if(i <= 10) {
       shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-    } else if (i >= 11 && i < 18 ) {
-      shelfTwo += `<article class=${randomizeBook()} tabIndex="0"></article>`
+    } else if (i >= 11 && i < 20 ) {
+      shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     } else {
-      shelfThree += `<article class=${randomizeBook()} tabIndex="0"></article>`
+      shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     }
   }
 }
@@ -92,7 +92,7 @@ const hideRemoveButton = () => {
 }
 
 const removeBook = () => {
-  newOwner.bookshelf.bookCount--
+  newOwner.bookCount--
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
   if(book.parentNode) {
