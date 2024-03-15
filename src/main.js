@@ -60,7 +60,7 @@ const loadShelves = () => {
 
 const addBook = () => {
   newOwner.addBook()
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage)
+  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else if(savedBooks >=10 && savedBooks <= 19) {
