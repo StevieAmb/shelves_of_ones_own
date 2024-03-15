@@ -92,7 +92,7 @@ const hideRemoveButton = () => {
 }
 
 const removeBook = () => {
-  newOwner.bookshelf.bookCount--
+  newOwner.bookCount--
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
   if(book.parentNode) {
