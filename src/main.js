@@ -9,7 +9,8 @@ const bookCount = document.getElementById('bookCount')
 
 class Owner {
   constructor(blah) {
-    this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0
+    this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0;
+    this.titles = this.retrieveTitlesFromStorage() || [];
   }
 
   addBook = () => {
@@ -17,13 +18,28 @@ class Owner {
     this.saveBooksToStorage()
   }
 
+  addTitle = (title) => {
+    this.titles.push(title)
+    this.saveTitlesToStorage()
+  }
+
+  saveTitlesToStorage = () => {
+    localStorage.setItem('titles', JSON.stringify(this.titles))
+  }
+
+  retrieveTitlesFromStorage = () => {
+    let parsedTitles = ''
+    parsedTitles = JSON.parse(localStorage.getItem('titles'))
+    console.log('parsed', parsedTitles)
+    return parsedTitles;
+  }
+
   saveBooksToStorage = () => {
     localStorage.setItem('numOfBooks', JSON.stringify(this.bookCount));
   }
 
   retrieveBooksFromStorage = () => {
-    let parsedBookCount = ''
-    parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
+    let parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
     return parsedBookCount;
   }
 
@@ -46,10 +62,11 @@ const updateBookCount = () => {
 
 
 const loadShelves = () => {
+  let titles = newOwner.retrieveTitlesFromStorage()
   let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
   for(let i = 0; i < savedBooks; i++) {
     if(i <= 10) {
-      shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+      shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
     } else if (i >= 11 && i < 20 ) {
       shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     } else {
@@ -73,9 +90,7 @@ const addBook = () => {
   updateBookCount()
 }
 
-
-
-const enableAddBookButton = () => {
+ const enableAddBookButton = () => {
   !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
 }
 
@@ -104,8 +119,18 @@ const removeBook = () => {
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
+  newOwner.addTitle(addTitleInput.value.toUpperCase())
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
+  newOwner.titles.push(addTitleInput.value.toUpperCase())
   addTitleInput.value = ""
+}
+
+const addTitle = () => {
+  //And then store that array into localStorage, we also need to be able
+  //To retrieve the array
+  //Then on load, we'll iterate through the titles and somehow add them
+  //That can be in the loadshelf function, so we call the titles
+  //In the loadshelf function, and then add them in as they are iterating
 }
 
 const randomizeBook = () => {
