@@ -62,13 +62,10 @@ const addBook = () => {
   newOwner.addBook()
   let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
   if(savedBooks <= 9) {
-    console.log('first shelf')
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else if(savedBooks >=10 && savedBooks <= 19) {
-    console.log('second shelf')
     shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else {
-    console.log('third shelf', savedBooks)
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
   addBookTitle()
