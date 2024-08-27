@@ -9,6 +9,11 @@ class Owner {
     this.saveBooksToStorage()
   }
 
+  removeBook = () => {
+    this.bookCount--
+    this.saveBooksToStorage()
+  }
+
   addTitle = (title) => {
     this.titles.push(title)
     this.saveTitlesToStorage()
@@ -39,4 +44,3 @@ class Owner {
     this.bookCount = 0
   }
 }
-export default Owner;

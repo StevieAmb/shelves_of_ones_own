@@ -26,7 +26,7 @@ const loadShelves = () => {
   for(let i = 0; i < savedBooks; i++) {
     if(i <= 10) {
       shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
-    } else if (i >= 11 && i < 20 ) {
+    } else if (i >= 11 && i < 21 ) {
       shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     } else {
       shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
