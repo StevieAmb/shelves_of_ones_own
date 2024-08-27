@@ -11,9 +11,9 @@ const bookCount = document.getElementById('bookCount')
 let newOwner = new Owner()
 
 const updateBookCount = () => {
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
-  if(savedBooks) {
-    bookCount.textContent = savedBooks
+  let savedTitles = parseInt(newOwner.titles.length)
+  if(savedTitles) {
+    bookCount.textContent = savedTitles;
   } else {
     bookCount.textContent = 0
   }
@@ -55,14 +55,26 @@ const addBook = () => {
 
 const displayRemoveButton = () => {
   if(parseInt(newOwner.retrieveBooksFromStorage()) > 0) {
-    removeBookButton.classList.remove('hidden')
+    show([clearShelf, removeBookButton])
   } 
 }
 
 const hideRemoveButton = () => {
-  if (newOwner.bookshelf.bookCount < 1) {
-    removeBookButton.classList.add('hidden')
+  if (parseInt(newOwner.retrieveBooksFromStorage()) < 1) {
+    hide([clearShelf, removeBookButton])
   }
+}
+
+const show = (elements) => {
+  elements.forEach(elem => {
+    elem.classList.remove('hidden')
+  })
+}
+
+const hide = (elements) => {
+  elements.forEach(elem => {
+    elem.classList.add('hidden')
+  })
 }
 
 const removeBook = () => {
@@ -84,14 +96,6 @@ const addBookTitle = () => {
   addTitleInput.value = ""
 }
 
-const addTitle = () => {
-  //And then store that array into localStorage, we also need to be able
-  //To retrieve the array
-  //Then on load, we'll iterate through the titles and somehow add them
-  //That can be in the loadshelf function, so we call the titles
-  //In the loadshelf function, and then add them in as they are iterating
-}
-
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green']
 
@@ -108,4 +112,5 @@ window.onload = loadBooks()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
+clearShelf.addEventListener('click', newOwner.clearShelf)
 
