@@ -13,7 +13,7 @@ let newOwner = new Owner()
 const updateBookCount = () => {
   let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
   if(savedBooks) {
-    bookCount.textContent = newOwner.retrieveBooksFromStorage()
+    bookCount.textContent = savedBooks
   } else {
     bookCount.textContent = 0
   }
@@ -54,7 +54,7 @@ const addBook = () => {
 }
 
 const displayRemoveButton = () => {
-  if(newOwner.bookCount > 0) {
+  if(parseInt(newOwner.retrieveBooksFromStorage()) > 0) {
     removeBookButton.classList.remove('hidden')
   } 
 }
