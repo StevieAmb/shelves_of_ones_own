@@ -98,7 +98,6 @@ const addBookTitle = () => {
 
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green']
-
   let index = Math.floor(Math.random() * books.length)
   return books[index]
 }
@@ -108,9 +107,15 @@ const loadBooks = () => {
   loadShelves()
 }
 
+const clearBookShelf = () => {
+  newOwner.clearShelf()
+  console.log(localStorage)
+  loadShelves()
+}
+
 window.onload = loadBooks()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
-clearShelf.addEventListener('click', newOwner.clearShelf)
+clearShelf.addEventListener('click', clearBookShelf)
 
