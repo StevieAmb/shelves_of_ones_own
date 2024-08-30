@@ -7,54 +7,13 @@ const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
 
-class Owner {
-  constructor(blah) {
-    this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0;
-    this.titles = this.retrieveTitlesFromStorage() || [];
-  }
-
-  addBook = () => {
-    this.bookCount++
-    this.saveBooksToStorage()
-  }
-
-  addTitle = (title) => {
-    this.titles.push(title)
-    this.saveTitlesToStorage()
-  }
-
-  saveTitlesToStorage = () => {
-    localStorage.setItem('titles', JSON.stringify(this.titles))
-  }
-
-  retrieveTitlesFromStorage = () => {
-    let parsedTitles = ''
-    parsedTitles = JSON.parse(localStorage.getItem('titles'))
-    console.log('parsed', parsedTitles)
-    return parsedTitles;
-  }
-
-  saveBooksToStorage = () => {
-    localStorage.setItem('numOfBooks', JSON.stringify(this.bookCount));
-  }
-
-  retrieveBooksFromStorage = () => {
-    let parsedBookCount = JSON.parse(localStorage.getItem('numOfBooks'));
-    return parsedBookCount;
-  }
-
-  clearShelf = () => {
-    localStorage.clear()
-    this.bookCount = 0
-  }
-}
 
 let newOwner = new Owner()
 
 const updateBookCount = () => {
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
+  let savedBooks = newOwner.bookCount;
   if(savedBooks) {
-    bookCount.textContent = newOwner.retrieveBooksFromStorage()
+    bookCount.textContent = savedBooks;
   } else {
     bookCount.textContent = 0
   }
@@ -67,7 +26,7 @@ const loadShelves = () => {
   for(let i = 0; i < savedBooks; i++) {
     if(i <= 10) {
       shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
-    } else if (i >= 11 && i < 20 ) {
+    } else if (i >= 11 && i < 21 ) {
       shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
     } else {
       shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -90,32 +49,6 @@ const addBook = () => {
   updateBookCount()
 }
 
- const enableAddBookButton = () => {
-  !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
-}
-
-const displayRemoveButton = () => {
-  if(newOwner.bookCount > 0) {
-    removeBookButton.classList.remove('hidden')
-  } 
-}
-
-const hideRemoveButton = () => {
-  if (newOwner.bookshelf.bookCount < 1) {
-    removeBookButton.classList.add('hidden')
-  }
-}
-
-const removeBook = () => {
-  newOwner.bookCount--
-  let books = document.querySelectorAll('article')
-  let book = books[books.length - 1]
-  if(book.parentNode) {
-    book.parentNode.removeChild(book)
-  }
-  hideRemoveButton()
-}
-
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
@@ -125,17 +58,47 @@ const addBookTitle = () => {
   addTitleInput.value = ""
 }
 
-const addTitle = () => {
-  //And then store that array into localStorage, we also need to be able
-  //To retrieve the array
-  //Then on load, we'll iterate through the titles and somehow add them
-  //That can be in the loadshelf function, so we call the titles
-  //In the loadshelf function, and then add them in as they are iterating
+ const enableAddBookButton = () => {
+  !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
+}
+
+const displayRemoveButton = () => {
+  if(parseInt(newOwner.retrieveBooksFromStorage()) > 0) {
+    show([clearShelf, removeBookButton])
+  } 
+}
+
+const hideRemoveButton = () => {
+  if (parseInt(newOwner.retrieveBooksFromStorage()) < 1) {
+    hide([clearShelf, removeBookButton])
+  }
+}
+
+const show = (elements) => {
+  elements.forEach(elem => {
+    elem.classList.remove('hidden')
+  })
+}
+
+const hide = (elements) => {
+  elements.forEach(elem => {
+    elem.classList.add('hidden')
+  })
+}
+
+const removeBook = () => {
+  let books = document.querySelectorAll('article')
+  let book = books[books.length - 1]
+  if(book.parentNode) {
+    book.parentNode.removeChild(book)
+  }
+  newOwner.removeBook()
+  updateBookCount()
+  hideRemoveButton()
 }
 
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green']
-
   let index = Math.floor(Math.random() * books.length)
   return books[index]
 }
@@ -145,8 +108,15 @@ const loadBooks = () => {
   loadShelves()
 }
 
+const clearBookShelf = () => {
+  newOwner.clearShelf()
+  console.log(localStorage)
+  loadShelves()
+}
+
 window.onload = loadBooks()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
+clearShelf.addEventListener('click', clearBookShelf)
 

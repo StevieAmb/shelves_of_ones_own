@@ -1,7 +1,6 @@
 {
   "name": "shelves_of_ones_own",
   "version": "1.0.0",
-  "type": "module",
   "description": "passion-project",
   "main": "src/index.js",
   "devDependencies": {
