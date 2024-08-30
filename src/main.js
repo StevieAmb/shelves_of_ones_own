@@ -12,7 +12,6 @@ let newOwner = new Owner()
 
 const updateBookCount = () => {
   let savedBooks = newOwner.bookCount;
-  console.log(savedBooks)
   if(savedBooks) {
     bookCount.textContent = savedBooks;
   } else {
@@ -88,12 +87,13 @@ const hide = (elements) => {
 }
 
 const removeBook = () => {
-  newOwner.bookCount--
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
   if(book.parentNode) {
     book.parentNode.removeChild(book)
   }
+  newOwner.removeBook()
+  updateBookCount()
   hideRemoveButton()
 }
 
