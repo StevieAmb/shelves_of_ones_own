@@ -22,21 +22,25 @@ const updateBookCount = () => {
 
 const loadShelves = () => {
   let titles = newOwner.retrieveTitlesFromStorage()
-  let savedBooks =  parseInt(newOwner.retrieveBooksFromStorage())
-  for(let i = 0; i < savedBooks; i++) {
-    if(i <= 10) {
-      shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
-    } else if (i >= 11 && i < 21 ) {
-      shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
-    } else {
-      shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+  let savedBooks =  newOwner.bookCount;
+  if(savedBooks > 0) {
+    for(let i = 0; i < savedBooks; i++) {
+      if(i <= 10) {
+        shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
+      } else if (i >= 11 && i < 21 ) {
+        shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+      } else {
+        shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+      }
     }
+  } else {
+    shelfOne.innerHTML += ``
   }
 }
 
 const addBook = () => {
   newOwner.addBook()
-  let savedBooks = parseInt(newOwner.retrieveBooksFromStorage())
+  let savedBooks = newOwner.bookCount;
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   } else if(savedBooks >=10 && savedBooks <= 19) {
@@ -89,11 +93,11 @@ const hide = (elements) => {
 const removeBook = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
-  if(book.parentNode) {
+  if (newOwner.bookCount > 0 && book.parentNode) {
     book.parentNode.removeChild(book)
+    newOwner.removeBook()
+    updateBookCount()
   }
-  newOwner.removeBook()
-  updateBookCount()
   hideRemoveButton()
 }
 
@@ -110,8 +114,7 @@ const loadBooks = () => {
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
-  console.log(localStorage)
-  loadShelves()
+  loadBooks()
 }
 
 window.onload = loadBooks()
