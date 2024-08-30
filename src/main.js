@@ -22,7 +22,7 @@ const updateBookCount = () => {
 
 const loadShelves = () => {
   let titles = newOwner.retrieveTitlesFromStorage()
-  let savedBooks =  newOwner.bookCount;
+  let savedBooks = newOwner.bookCount;
   if(savedBooks > 0) {
     for(let i = 0; i < savedBooks; i++) {
       if(i <= 10) {
@@ -34,7 +34,7 @@ const loadShelves = () => {
       }
     }
   } else {
-    shelfOne.innerHTML += ``
+    shelfOne.innerHTML = ``
   }
 }
 
@@ -114,7 +114,7 @@ const loadBooks = () => {
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
-  loadBooks()
+  setTimeout(() => loadBooks(), 1000)
 }
 
 window.onload = loadBooks()
