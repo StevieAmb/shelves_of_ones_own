@@ -1,6 +1,6 @@
 class Owner {
   constructor(blah) {
-    this.bookCount = parseInt(this.retrieveBooksFromStorage()) || 0;
+    this.bookCount = this.retrieveBooksFromStorage() || 0;
     this.titles = this.retrieveTitlesFromStorage() || [];
   }
 

@@ -11,9 +11,10 @@ const bookCount = document.getElementById('bookCount')
 let newOwner = new Owner()
 
 const updateBookCount = () => {
-  let savedTitles = parseInt(newOwner.titles.length)
-  if(savedTitles) {
-    bookCount.textContent = savedTitles;
+  let savedBooks = newOwner.bookCount;
+  console.log(savedBooks)
+  if(savedBooks) {
+    bookCount.textContent = savedBooks;
   } else {
     bookCount.textContent = 0
   }
@@ -47,6 +48,15 @@ const addBook = () => {
   addBookTitle()
   displayRemoveButton()
   updateBookCount()
+}
+
+const addBookTitle = () => {
+  let books = document.querySelectorAll('article')
+  let book = books[books.length - 1]
+  newOwner.addTitle(addTitleInput.value.toUpperCase())
+  book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
+  newOwner.titles.push(addTitleInput.value.toUpperCase())
+  addTitleInput.value = ""
 }
 
  const enableAddBookButton = () => {
@@ -85,15 +95,6 @@ const removeBook = () => {
     book.parentNode.removeChild(book)
   }
   hideRemoveButton()
-}
-
-const addBookTitle = () => {
-  let books = document.querySelectorAll('article')
-  let book = books[books.length - 1]
-  newOwner.addTitle(addTitleInput.value.toUpperCase())
-  book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
-  newOwner.titles.push(addTitleInput.value.toUpperCase())
-  addTitleInput.value = ""
 }
 
 const randomizeBook = () => {
