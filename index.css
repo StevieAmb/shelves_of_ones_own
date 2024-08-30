@@ -229,6 +229,12 @@ p {
   margin-right: 20px;
 }
 
+.orange:hover, .orange:focus {
+  width: 53px;
+  height: 80px;
+  box-shadow: -6px 16px 15px rgb(76, 59, 2);
+}
+
 .blue p:hover, .red p:focus {
   transform: rotate(90deg);
   font: 9px/2 italic;
@@ -239,12 +245,6 @@ p {
   height: 100%;
   margin: 8px 0 0 -60px;
   overflow: auto;
-}
-
-.orange:hover, .orange:focus {
-  width: 53px;
-  height: 80px;
-  box-shadow: -6px 16px 15px rgb(76, 59, 2);
 }
 
 article {
