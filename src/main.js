@@ -114,7 +114,7 @@ const loadBooks = () => {
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
-  setTimeout(() => loadBooks(), 1000)
+  loadBooks()
 }
 
 window.onload = loadBooks()
