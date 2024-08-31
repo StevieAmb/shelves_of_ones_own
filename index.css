@@ -125,7 +125,8 @@ p {
 .red:hover, .red:focus {
   width: 61px;
   height: 112px;
-  box-shadow: -6px 16px 15px rgb(39, 7, 2);
+  box-shadow: 0 0 15px 5.3px rgb(39, 7, 2);
+  isolation: isolate;
 }
 
 .red p {
@@ -163,7 +164,8 @@ p {
 .blue:hover, .blue:focus {
   width: 50px;
   height: 93px;
-  box-shadow: -6px 16px 15px rgb(14, 3, 32);
+  box-shadow: 0 0 15px 5.3px rgb(14, 3, 32);
+  isolation: isolate;
 }
 
 .blue p {
@@ -202,7 +204,9 @@ p {
 .green:hover, .green:focus {
   width: 40px;
   height: 80px;
-  box-shadow: -6px 16px 15px rgb(1, 47, 19);
+  box-shadow: -6px 16px 15px;
+  box-shadow: 0 0 15px 5.3px rgb(1, 47, 19);
+  isolation: isolate;
 }
 
 .green p {
