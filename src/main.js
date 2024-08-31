@@ -26,11 +26,14 @@ const loadShelves = () => {
   if(savedBooks > 0) {
     for(let i = 0; i < savedBooks; i++) {
       if(i <= 10) {
-        shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"><p>${titles && titles[i]}</p></article>`
+        shelfOne.innerHTML += 
+        `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0">
+          <p>${titles && titles[i]}</p>
+        </article>`
       } else if (i >= 11 && i < 21 ) {
-        shelfTwo.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+        shelfTwo.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0"></article>`
       } else {
-        shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
+        shelfThree.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0"></article>`
       }
     }
   } else {
