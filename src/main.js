@@ -38,6 +38,8 @@ const loadShelves = () => {
     }
   } else {
     shelfOne.innerHTML = ``
+    shelfTwo.innerHTML = ``
+    shelfThree.innerHTML = ``
   }
 }
 
