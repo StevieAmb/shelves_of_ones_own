@@ -163,7 +163,8 @@ p {
 .blue:hover, .blue:focus {
   width: 50px;
   height: 93px;
-  box-shadow: -6px 16px 15px rgb(14, 3, 32);
+  box-shadow: 0 0 15px 8px rgb(14, 3, 32);
+  isolation: isolate;
 }
 
 .blue p {
