@@ -111,6 +111,8 @@ const removeBook = () => {
   }
    console.log(bookIndex)
    books[bookIndex].remove()
+   newOwner.bookCount--
+   updateBookCount()
 }
 
 const randomizeBook = () => {
