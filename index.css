@@ -72,9 +72,10 @@ p {
   margin: 0;
 }
 
-.remove-button {
-  font-weight: bolder;
-  font-size: x-large;
+
+.selected {
+  box-shadow: 0 0 15px 5.3px rgb(39, 7, 2);
+  isolation: isolate;
 }
 
 .purple {
