@@ -83,6 +83,11 @@ p {
   margin: 0;
 }
 
+.remove-book {
+  font-weight: bolder;
+  font-size: 56px;
+}
+
 .purple {
   background-color: purple;
   width: 35px;

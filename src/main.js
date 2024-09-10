@@ -122,6 +122,7 @@ const randomizeBook = () => {
 const loadBooks = () => {
   updateBookCount()
   loadShelves()
+  displayRemoveButton()
 }
 
 const clearBookShelf = () => {
