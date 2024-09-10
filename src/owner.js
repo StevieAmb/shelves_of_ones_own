@@ -26,7 +26,6 @@ class Owner {
   retrieveTitlesFromStorage = () => {
     let parsedTitles = ''
     parsedTitles = JSON.parse(localStorage.getItem('titles'))
-    console.log('parsed', parsedTitles)
     return parsedTitles;
   }
 

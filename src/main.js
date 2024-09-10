@@ -6,6 +6,7 @@ let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
+let bookshelf = document.getElementById('bookshelf')
 
 
 let newOwner = new Owner()
@@ -31,9 +32,13 @@ const loadShelves = () => {
           <p>${titles && titles[i]}</p>
         </article>`
       } else if (i >= 11 && i < 21 ) {
-        shelfTwo.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0"></article>`
+        shelfTwo.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0">
+          <p>${titles && titles[i]}</p>
+        </article>`
       } else {
-        shelfThree.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0"></article>`
+        shelfThree.innerHTML += `<article id={Math.random().toString(36).substr(2, 9)} class=${randomizeBook()} tabIndex="0">
+          <p>${titles && titles[i]}</p>
+        </article>`
       }
     }
   } else {
@@ -54,7 +59,6 @@ const addBook = () => {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
   addBookTitle()
-  displayRemoveButton()
   updateBookCount()
 }
 
@@ -72,13 +76,13 @@ const addBookTitle = () => {
 }
 
 const displayRemoveButton = () => {
-  if(parseInt(newOwner.retrieveBooksFromStorage()) > 0) {
+  if(parseInt(newOwner.bookCount) > 0) {
     show([clearShelf, removeBookButton])
   } 
 }
 
 const hideRemoveButton = () => {
-  if (parseInt(newOwner.retrieveBooksFromStorage()) < 1) {
+  if (parseInt(newOwner.bookCount) < 1) {
     hide([clearShelf, removeBookButton])
   }
 }
@@ -96,20 +100,32 @@ const hide = (elements) => {
 }
 
 const removeBook = () => {
-  let books = document.querySelectorAll('article')
-  let book = books[books.length - 1]
-  if (newOwner.bookCount > 0 && book.parentNode) {
-    book.parentNode.removeChild(book)
-    newOwner.removeBook()
-    updateBookCount()
+  let bookIndex;
+  let books = document.getElementsByTagName('article')
+  console.log(books)
+  for(let i = 0; i < books.length; i++) {
+    let cList = [...books[i].classList]
+    if(cList.includes('picked')) {
+      bookIndex = i
+    }
   }
-  hideRemoveButton()
+   console.log(bookIndex)
+   books[bookIndex].remove()
+   newOwner.removeBook()
+   updateBookCount()
 }
 
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green']
   let index = Math.floor(Math.random() * books.length)
   return books[index]
+}
+
+const selectBook = (e) => {
+  if(e.target.tagName === 'P') {
+    e.target.parentNode.classList.toggle('picked')
+    displayRemoveButton()
+  }
 }
 
 const loadBooks = () => {
@@ -119,6 +135,7 @@ const loadBooks = () => {
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
+  hideRemoveButton()
   loadBooks()
 }
 
@@ -127,4 +144,10 @@ addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
+bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
+
+//If I want to have a functionality that removes the book, what I can do is I can
+//Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
+//that's where I put the isolation for the box shadow.
+//Then, what i do is I check that class, and if that is the one that is clicked, then I remove it.
 
