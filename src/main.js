@@ -100,14 +100,31 @@ const hide = (elements) => {
 }
 
 const removeBook = () => {
+  let bookIndex;
   let books = document.querySelectorAll('article')
-  let book = books[books.length - 1]
-  if (newOwner.bookCount > 0 && book.parentNode) {
-    book.parentNode.removeChild(book)
-    newOwner.removeBook()
-    updateBookCount()
+  let bookList = [...books]
+  for(let i = 0; i < bookList.length; i++) {
+    if(bookList[i].children.classList === 'selected') {
+      bookIndex = indexOf(bookList[i])
+    }
   }
-  hideRemoveButton()
+  bookList.slice(bookIndex, 1)
+
+  // let removedBook = books.find(book => {
+  //   if(book.children.classList === 'selected') {
+  //     return book
+  //   }
+  // })
+
+  // console.log(removedBook)
+
+  // let book = books[books.length - 1]
+  // if (newOwner.bookCount > 0 && book.parentNode) {
+  //   book.parentNode.removeChild(book)
+  //   newOwner.removeBook()
+  //   updateBookCount()
+  // }
+  // hideRemoveButton()
 }
 
 const randomizeBook = () => {
