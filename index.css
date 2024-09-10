@@ -66,26 +66,15 @@ p {
   background-color:rgba(58, 16, 16, 0.527);
 }
 
-footer {
-  padding: 1.5% 0;
-  text-align: center;
-  width: 100%;
-  background-color: rgba(163, 135, 46, 0.54);
-  box-shadow: 4px -14px 25px rgba(88, 73, 24, 0.54);
-  font-weight: 900;
-  letter-spacing: 1.3rem;
-  text-shadow: .1rem .1rem rgba(88, 73, 24, 0.54);
-}
-
 p {
   color: black;
   padding-bottom: 10px;
   margin: 0;
 }
 
-.remove-book {
+.remove-button {
   font-weight: bolder;
-  font-size: 56px;
+  font-size: x-large;
 }
 
 .purple {
@@ -270,6 +259,17 @@ article:hover, article:focus {
 
 :root {
   background: rgba(165, 42, 42, 0.82);
+}
+
+footer {
+  padding: 1.5% 0;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(163, 135, 46, 0.54);
+  box-shadow: 4px -14px 25px rgba(88, 73, 24, 0.54);
+  font-weight: 900;
+  letter-spacing: 1.3rem;
+  text-shadow: .1rem .1rem rgba(88, 73, 24, 0.54);
 }
 
 /* .book-title {
