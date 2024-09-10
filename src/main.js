@@ -59,7 +59,6 @@ const addBook = () => {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
   addBookTitle()
-  // displayRemoveButton()
   updateBookCount()
 }
 
@@ -127,7 +126,6 @@ const showRemoveBookButton = (e) => {
 const loadBooks = () => {
   updateBookCount()
   loadShelves()
-  // displayRemoveButton()
 }
 
 const clearBookShelf = () => {
