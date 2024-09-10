@@ -78,7 +78,7 @@ const displayRemoveButton = () => {
 }
 
 const hideRemoveButton = () => {
-  if (parseInt(newOwner.retrieveBooksFromStorage()) < 1) {
+  if (parseInt(newOwner.bookCount) < 1) {
     hide([clearShelf, removeBookButton])
   }
 }
@@ -119,6 +119,7 @@ const loadBooks = () => {
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
+  hideRemoveButton()
   loadBooks()
 }
 
