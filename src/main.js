@@ -100,34 +100,17 @@ const hide = (elements) => {
 }
 
 const removeBook = () => {
-  let books = document.querySelectorAll('article')
+  let bookIndex;
+  let books = document.getElementsByTagName('article')
   console.log(books)
-  let bookList = [...books]
-  for(let i = 0; i < bookList.length; i++) {
-    let cList = [...bookList[i].classList]
-    console.log(cList)
+  for(let i = 0; i < books.length; i++) {
+    let cList = [...books[i].classList]
     if(cList.includes('picked')) {
-      console.log(bookList[i])
+      bookIndex = i
     }
   }
-
-
-
-  // let removedBook = books.find(book => {
-  //   if(book.children.classList === 'selected') {
-  //     return book
-  //   }
-  // })
-
-  // console.log(removedBook)
-
-  // let book = books[books.length - 1]
-  // if (newOwner.bookCount > 0 && book.parentNode) {
-  //   book.parentNode.removeChild(book)
-  //   newOwner.removeBook()
-  //   updateBookCount()
-  // }
-  // hideRemoveButton()
+   console.log(bookIndex)
+   books[bookIndex].remove()
 }
 
 const randomizeBook = () => {
@@ -138,7 +121,7 @@ const randomizeBook = () => {
 
 const selectBook = (e) => {
   if(e.target.tagName === 'P') {
-    e.target.parentNode.classList = 'picked'
+    e.target.parentNode.classList.toggle('picked')
     displayRemoveButton()
   }
 }
