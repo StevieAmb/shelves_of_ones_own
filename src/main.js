@@ -6,6 +6,7 @@ let removeBookButton = document.getElementById('remove-button-el')
 const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
+let bookshelf = document.getElementById('bookshelf')
 
 
 let newOwner = new Owner()
@@ -58,7 +59,7 @@ const addBook = () => {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
   addBookTitle()
-  displayRemoveButton()
+  // displayRemoveButton()
   updateBookCount()
 }
 
@@ -76,7 +77,7 @@ const addBookTitle = () => {
 }
 
 const displayRemoveButton = () => {
-  if(parseInt(newOwner.retrieveBooksFromStorage()) > 0) {
+  if(parseInt(newOwner.bookCount) > 0) {
     show([clearShelf, removeBookButton])
   } 
 }
@@ -116,10 +117,17 @@ const randomizeBook = () => {
   return books[index]
 }
 
+const showRemoveBookButton = (e) => {
+  console.log(e.target.tagName)
+  if(e.target.tagName === 'P') {
+    displayRemoveButton()
+  }
+}
+
 const loadBooks = () => {
   updateBookCount()
   loadShelves()
-  displayRemoveButton()
+  // displayRemoveButton()
 }
 
 const clearBookShelf = () => {
@@ -133,4 +141,13 @@ addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
+bookshelf.addEventListener('click', (e) => showRemoveBookButton(e) )
+
+//So what I want is, when I click on any book on the bookshelf,
+//The remove book button pops up.
+//This means I need an event listener on the books, or maybe one up of it, so
+//That when I click on any book, the button shows up.
+//I need to put an event listener on the bookshelf, and then...
+//I need to check the element and see if the class is red/green/blue,
+//and if it is, then I show the remove book button.
 
