@@ -51,8 +51,8 @@ p {
 .dropdown-content {
   display: none;
   position: absolute;
-  bottom: 2rem;
-  left: 1rem;
+  bottom: 2.5rem;
+  left: -2rem;
   text-align: center;
   background-color: #f9f9f9;
   min-width: 160px;
@@ -61,7 +61,7 @@ p {
   z-index: 1;
 }
 
-.dropdown-content p {
+.dropdown-content .color-row {
   border-bottom: 3px solid black;
 }
 
