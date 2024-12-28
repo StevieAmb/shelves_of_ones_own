@@ -116,8 +116,9 @@ const removeBook = () => {
 }
 
 const randomizeBook = () => {
-  const books = ['red', 'blue', 'green']
+  const books = ['red', 'blue', 'green', 'purple', 'yellow']
   let index = Math.floor(Math.random() * books.length)
+  console.log('hello')
   return books[index]
 }
 
