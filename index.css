@@ -62,8 +62,28 @@ p {
 }
 
 .dropdown-content .color-row {
+  display: flex;
+  justify-content: space-around;
   border-bottom: 3px solid black;
 }
+
+
+.dropdown-content .color-row #red {
+  background-color: red;
+  width: 2.5rem;
+  height: 2rem;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.dropdown-content .color-row #blue {
+  background-color: blue;
+  width: 2.5rem;
+  height: 2rem;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
 
 .dropdown:hover .dropdown-content {
   display: block;
