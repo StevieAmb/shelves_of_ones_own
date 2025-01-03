@@ -24,6 +24,16 @@ const updateBookCount = () => {
   }
 } 
 
+const addSelectedColor = () => {
+  userLeftWall.classList.add()
+  userRoom.classList.add()
+}
+
+//So I am going to query the dropdown panel, and then I am going to check which
+//of the squares is clicked backed on the ID. Then, when that is selected, 
+//You are going to add the color based on which button is clicked. 
+//If we do ID, then maybe we can do a switch statement, where
+//whichever ID is clicked, then we are going to add a particular class
 
 const loadShelves = () => {
   let titles = newOwner.retrieveTitlesFromStorage()
