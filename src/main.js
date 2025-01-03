@@ -13,6 +13,7 @@ let userRoom = document.getElementById('userRoom')
 
 let newOwner = new Owner()
 
+
 const updateBookCount = () => {
   let savedBooks = newOwner.bookCount;
   if(savedBooks) {
