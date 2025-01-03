@@ -109,7 +109,7 @@ const removeBook = () => {
       bookIndex = i
     }
   }
-   console.log(bookIndex)
+   console.log(bookIndex) //yellow book is undefined
    books[bookIndex].remove()
    newOwner.removeBook()
    updateBookCount()
