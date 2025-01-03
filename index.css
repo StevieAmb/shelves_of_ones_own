@@ -43,6 +43,10 @@ p {
   background-color: rgb(159, 116, 164);
 }
 
+.added-user-color-red {
+  background-color: red;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

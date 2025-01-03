@@ -24,10 +24,16 @@ const updateBookCount = () => {
   }
 } 
 
-const addSelectedColor = () => {
-  userLeftWall.classList.add()
-  userRoom.classList.add()
+const addSelectedColor = (e) => {
+  switch(e.target.id) {
+    case 'redWallColor':
+      userLeftWall.classList.add('added-user-color-red')
+      userRoom.classList.add()
+      // dropdownPanel.classList.add('added-user-color-red')
+  }
 }
+
+
 
 //So I am going to query the dropdown panel, and then I am going to check which
 //of the squares is clicked backed on the ID. Then, when that is selected, 
@@ -160,6 +166,7 @@ removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
+dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
 
 //If I want to have a functionality that removes the book, what I can do is I can
 //Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
