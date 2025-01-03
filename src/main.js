@@ -127,7 +127,6 @@ const randomizeBook = () => {
 }
 
 const selectBook = (e) => {
-  console.log('clicked yellow book', e.target.tagName)
   if(e.target.tagName === 'P') {
     e.target.parentNode.classList.toggle('picked')
     displayRemoveButton()
