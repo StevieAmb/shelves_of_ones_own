@@ -7,6 +7,8 @@ const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
 let bookshelf = document.getElementById('bookshelf')
+let userLeftWall = document.getElementById('userLeftWall')
+let userRoom = document.getElementById('userRoom')
 
 
 let newOwner = new Owner()
