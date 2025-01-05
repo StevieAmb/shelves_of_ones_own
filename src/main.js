@@ -24,29 +24,20 @@ const updateBookCount = () => {
   }
 } 
 
-const changeToSelectedColor = () => {
-  userLeftWall.classList.add('added-user-color-red')
+const changeToSelectedColor = (color) => {
+  userLeftWall.classList.add(`added-user-color-${color}`)
   userRoom.classList.add()
 }
 
 const addSelectedColor = (e) => {
-  let selectedColor = e.target.id.substring(0, (e.target.id.length - 9))
-  console.log(selectedColor)
+  let selectedColor = e.target.id.substring(0, (e.target.id.length - 9)) //This extracts the color chosen by user
+
   switch(e.target.id) {
     case 'redWallColor':
-      userLeftWall.classList.add('added-user-color-red')
-      userRoom.classList.add()
-      // dropdownPanel.classList.add('added-user-color-red')
+      changeToSelectedColor(selectedColor)
+      break;
   }
 }
-
-
-
-//So I am going to query the dropdown panel, and then I am going to check which
-//of the squares is clicked backed on the ID. Then, when that is selected, 
-//You are going to add the color based on which button is clicked. 
-//If we do ID, then maybe we can do a switch statement, where
-//whichever ID is clicked, then we are going to add a particular class
 
 const loadShelves = () => {
   let titles = newOwner.retrieveTitlesFromStorage()
