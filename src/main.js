@@ -37,9 +37,9 @@ const changeToSelectedColor = (e, color) => {
   const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
 
   if(!leftWallIsColored) {
-    userLeftWall.classList.remove(...userLeftWall.classList)
-    dropdownPanel.classList.remove(`added-user-color-${color}`)
-    dropdown.classList.remove(`added-user-color-${color}`)
+    userLeftWall.classList.remove(userLeftWall.classList[1])
+    dropdownPanel.classList.remove(dropdownPanel.classList[1])
+    dropdown.classList.remove(dropdown.classList[1])
   }
 
 
