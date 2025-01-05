@@ -4,17 +4,17 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <aside class="user-aside">
-      <div class="dropdown">
+    <aside class="user-aside" id="userLeftWall">
+      <div class="dropdown" id="dropDown">
         <h5>Change Room Color</h5>
-        <div class="dropdown-content">
+        <div class="dropdown-content" id="dropdownContent">
           <div class="color-row">
-            <p id="red"></p>
-            <p id="blue"></p>
+            <p id="redWallColor"></p>
+            <p id="blueWallColor"></p>
           </div>
           <div class="color-row">
-            <p id="yellow"></p>
-            <p id="green"></p>
+            <p id="yellowWallColor"></p>
+            <p id="greenWallColor"></p>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <button id="remove-button-el" class="user-button hidden">REMOVE BOOK?</button>
       <p class="hidden" id="clear-shelf">Clear shelf?</p>
     </aside>
-    <div id="room">
+    <div class="user-room" id="userRoom">
       <div id="bookshelf">
         <div class="shelf" id="shelf-one"></div>
         <div class="shelf" id="shelf-two"></div>
