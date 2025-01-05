@@ -102,6 +102,30 @@ p {
   background-color: rgb(252, 160, 160);
 }
 
+.added-user-color-blue {
+  background-color: blue;
+}
+
+.added-lighter-red {
+  background-color: rgb(145, 145, 254);
+}
+
+.added-user-color-yellow {
+  background-color: yellow;
+}
+
+.added-lighter-red {
+  background-color: rgb(255, 255, 202);
+}
+
+.added-user-color-green {
+  background-color: green;
+}
+
+.added-lighter-red {
+  background-color: rgb(171, 222, 171);
+}
+
 h5 {
   margin-bottom: 4rem;
 }
