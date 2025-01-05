@@ -25,7 +25,15 @@ const updateBookCount = () => {
   }
 } 
 
-const changeToSelectedColor = (color) => {
+const changeToSelectedColor = (e, color) => {
+
+  const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
+  console.log(e)
+  console.log(userLeftWall.classList.contains(`added-user-color-${color}`))
+  if(userLeftWall.classList.contains(`added-user-color-${color}`)) {
+
+  }
+
   userLeftWall.classList.add(`added-user-color-${color}`)
   userRoom.classList.add(`added-lighter-${color}`)
   dropdownPanel.classList.add(`added-user-color-${color}`)
@@ -37,7 +45,16 @@ const addSelectedColor = (e) => {
 
   switch(e.target.id) {
     case 'redWallColor':
-      changeToSelectedColor(selectedColor)
+      changeToSelectedColor(e, selectedColor)
+      break;
+    case 'blueWallColor':
+      changeToSelectedColor(e, selectedColor)
+      break;
+    case 'yellowWallColor':
+      changeToSelectedColor(e, selectedColor)
+      break;
+    case 'greenWallColor':
+      changeToSelectedColor(e, selectedColor)
       break;
   }
 }
