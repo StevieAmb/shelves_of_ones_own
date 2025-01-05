@@ -7,14 +7,9 @@ const clearShelf = document.getElementById('clear-shelf')
 const addTitleInput = document.getElementById('add-book-title')
 const bookCount = document.getElementById('bookCount')
 let bookshelf = document.getElementById('bookshelf')
-let userLeftWall = document.getElementById('userLeftWall')
-let userRoom = document.getElementById('userRoom')
-let dropdown = document.getElementById('dropDown')
-let dropdownPanel = document.getElementById('dropdownContent')
 
 
 let newOwner = new Owner()
-
 
 const updateBookCount = () => {
   let savedBooks = newOwner.bookCount;
@@ -25,42 +20,6 @@ const updateBookCount = () => {
   }
 } 
 
-const changeToSelectedColor = (e, color) => {
-
-  const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
-  const dropdownIsColored =  dropdown.classList.contains(`added-user-color-${color}`)
-  const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
-
-  if(leftWallIsColored && dropdownIsColored && panelIsColored) {
-    userLeftWall.classList.remove(`added-user-color-${color}`)
-    dropdownPanel.classList.remove(`added-user-color-${color}`)
-    dropdown.classList.remove(`added-user-color-${color}`)
-  }
-
-  userLeftWall.classList.add(`added-user-color-${color}`)
-  userRoom.classList.add(`added-lighter-${color}`)
-  dropdownPanel.classList.add(`added-user-color-${color}`)
-  dropdown.classList.add(`added-user-color-${color}`)
-}
-
-const addSelectedColor = (e) => {
-  let selectedColor = e.target.id.substring(0, (e.target.id.length - 9)) //This extracts the color chosen by user
-
-  switch(e.target.id) {
-    case 'redWallColor':
-      changeToSelectedColor(e, selectedColor)
-      break;
-    case 'blueWallColor':
-      changeToSelectedColor(e, selectedColor)
-      break;
-    case 'yellowWallColor':
-      changeToSelectedColor(e, selectedColor)
-      break;
-    case 'greenWallColor':
-      changeToSelectedColor(e, selectedColor)
-      break;
-  }
-}
 
 const loadShelves = () => {
   let titles = newOwner.retrieveTitlesFromStorage()
@@ -143,12 +102,14 @@ const hide = (elements) => {
 const removeBook = () => {
   let bookIndex;
   let books = document.getElementsByTagName('article')
+  console.log(books)
   for(let i = 0; i < books.length; i++) {
     let cList = [...books[i].classList]
     if(cList.includes('picked')) {
       bookIndex = i
     }
   }
+   console.log(bookIndex)
    books[bookIndex].remove()
    newOwner.removeBook()
    updateBookCount()
@@ -157,6 +118,7 @@ const removeBook = () => {
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green', 'purple', 'yellow']
   let index = Math.floor(Math.random() * books.length)
+  console.log('hello')
   return books[index]
 }
 
@@ -184,7 +146,6 @@ removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
-dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
 
 //If I want to have a functionality that removes the book, what I can do is I can
 //Add a classlist on click, so that the one that is clicked can have a tag on it, maybe

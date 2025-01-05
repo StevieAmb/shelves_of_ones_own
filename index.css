@@ -12,6 +12,7 @@ body {
   gap: 1rem;
   width: 20%;
   background-color: purple;
+  border: 2px solid purple;
   
 }
 
@@ -33,7 +34,7 @@ p {
   color: white;
 }
 
-#userRoom {
+#room {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,56 +75,24 @@ p {
 }
 
 
-.dropdown-content .color-row #redWallColor {
+.dropdown-content .color-row #red {
   background-color: red;
 }
 
-.dropdown-content .color-row #blueWallColor {
+.dropdown-content .color-row #blue {
   background-color: blue;
 }
 
-.dropdown-content .color-row #greenWallColor {
+.dropdown-content .color-row #green {
   background-color: green;
 }
 
-.dropdown-content .color-row #yellowWallColor {
+.dropdown-content .color-row #yellow {
   background-color: yellow;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.added-user-color-red {
-  background-color: red;
-}
-
-.added-lighter-red {
-  background-color: rgb(252, 160, 160);
-}
-
-.added-user-color-blue {
-  background-color: blue;
-}
-
-.added-lighter-blue {
-  background-color: rgb(145, 145, 254);
-}
-
-.added-user-color-yellow {
-  background-color: yellow;
-}
-
-.added-lighter-yellow {
-  background-color: rgb(255, 255, 202);
-}
-
-.added-user-color-green {
-  background-color: green;
-}
-
-.added-lighter-green {
-  background-color: rgb(171, 222, 171);
 }
 
 h5 {
@@ -215,30 +184,6 @@ p {
   width: 55px;
   height: 100px;
   box-shadow: -6px 16px 15px rgb(76, 59, 2);
-}
-
-.yellow p {
-  color: black;
-  width: 100%;
-  height: 100%;
-  padding: 2px;
-  font: .45rem "Fira Sans", sans-serif;
-  text-shadow: 0px 2px 3px rgba(203, 94, 21, 0.765);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-}
-
-.yellow p:hover, .red p:focus {
-  transform: rotate(90deg);
-  font: 10px/2 cursive;
-  line-height: 15px;
-  letter-spacing: 3px;
-  font-weight: bold;
-  width: 250%;
-  height: 100%;
-  margin: 0 0 0 -60px;
-  overflow: auto;
 }
 
 .red {
