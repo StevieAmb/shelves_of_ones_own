@@ -28,13 +28,13 @@ const updateBookCount = () => {
 const changeToSelectedColor = (e, color) => {
 
   const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
-  const dropdownIsColored =  dropdown.classList.add(`added-user-color-${color}`)
-  const panelIsColored = dropdownPanel.classList.add(`added-user-color-${color}`)
+  const dropdownIsColored =  dropdown.classList.contains(`added-user-color-${color}`)
+  const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
 
   if(leftWallIsColored && dropdownIsColored && panelIsColored) {
     userLeftWall.classList.remove(`added-user-color-${color}`)
     dropdownPanel.classList.remove(`added-user-color-${color}`)
-  dropdown.classList.remove(`added-user-color-${color}`)
+    dropdown.classList.remove(`added-user-color-${color}`)
   }
 
   userLeftWall.classList.add(`added-user-color-${color}`)
