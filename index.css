@@ -42,14 +42,6 @@ p {
   background-color: rgb(159, 116, 164);
 }
 
-.added-user-color-red {
-  background-color: red;
-}
-
-.added-user-color-lighter-red {
-  background-color: rgb(252, 160, 160);
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -100,6 +92,14 @@ p {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.added-user-color-red {
+  background-color: red;
+}
+
+.added-lighter-red {
+  background-color: rgb(252, 160, 160);
 }
 
 h5 {

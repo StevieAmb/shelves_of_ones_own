@@ -9,6 +9,7 @@ const bookCount = document.getElementById('bookCount')
 let bookshelf = document.getElementById('bookshelf')
 let userLeftWall = document.getElementById('userLeftWall')
 let userRoom = document.getElementById('userRoom')
+let dropdown = document.getElementById('dropDown')
 let dropdownPanel = document.getElementById('dropdownContent')
 
 
@@ -25,8 +26,10 @@ const updateBookCount = () => {
 } 
 
 const changeToSelectedColor = (color) => {
-  userLeftWall.classList.add(`added-user-color-${color}`)
-  userRoom.classList.add(`added-user-color-${color}`)
+  // userLeftWall.classList.add(`added-user-color-${color}`)
+  // userRoom.classList.add(`added-lighter-${color}`)
+  dropdownPanel.classList.add(`added-user-color-${color}`)
+  dropdown.classList.add(`added-user-color-${color}`)
 }
 
 const addSelectedColor = (e) => {
