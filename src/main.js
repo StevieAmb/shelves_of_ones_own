@@ -123,14 +123,12 @@ const hide = (elements) => {
 const removeBook = () => {
   let bookIndex;
   let books = document.getElementsByTagName('article')
-  console.log(books)
   for(let i = 0; i < books.length; i++) {
     let cList = [...books[i].classList]
     if(cList.includes('picked')) {
       bookIndex = i
     }
   }
-   console.log(bookIndex) //yellow book is undefined
    books[bookIndex].remove()
    newOwner.removeBook()
    updateBookCount()
@@ -139,7 +137,6 @@ const removeBook = () => {
 const randomizeBook = () => {
   const books = ['red', 'blue', 'green', 'purple', 'yellow']
   let index = Math.floor(Math.random() * books.length)
-  console.log('hello')
   return books[index]
 }
 
