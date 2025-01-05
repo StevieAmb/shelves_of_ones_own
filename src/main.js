@@ -26,8 +26,8 @@ const updateBookCount = () => {
 } 
 
 const changeToSelectedColor = (color) => {
-  // userLeftWall.classList.add(`added-user-color-${color}`)
-  // userRoom.classList.add(`added-lighter-${color}`)
+  userLeftWall.classList.add(`added-user-color-${color}`)
+  userRoom.classList.add(`added-lighter-${color}`)
   dropdownPanel.classList.add(`added-user-color-${color}`)
   dropdown.classList.add(`added-user-color-${color}`)
 }
