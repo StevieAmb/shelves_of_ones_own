@@ -78,15 +78,15 @@ p {
   background-color: red;
 }
 
-.dropdown-content .color-row #blue {
+.dropdown-content .color-row #blueWallColor {
   background-color: blue;
 }
 
-.dropdown-content .color-row #green {
+.dropdown-content .color-row #greenWallColor {
   background-color: green;
 }
 
-.dropdown-content .color-row #yellow {
+.dropdown-content .color-row #yellowWallColor {
   background-color: yellow;
 }
 
