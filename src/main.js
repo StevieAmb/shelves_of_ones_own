@@ -24,7 +24,14 @@ const updateBookCount = () => {
   }
 } 
 
+const changeToSelectedColor = () => {
+  userLeftWall.classList.add('added-user-color-red')
+  userRoom.classList.add()
+}
+
 const addSelectedColor = (e) => {
+  let selectedColor = e.target.id.substring(0, (e.target.id.length - 9))
+  console.log(selectedColor)
   switch(e.target.id) {
     case 'redWallColor':
       userLeftWall.classList.add('added-user-color-red')
