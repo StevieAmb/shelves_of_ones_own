@@ -42,8 +42,6 @@ const changeToSelectedColor = (e, color) => {
     dropdown.classList.remove(dropdown.classList[1])
   }
 
-
-
   userLeftWall.classList.add(`added-user-color-${color}`)
   userRoom.classList.add(`added-lighter-${color}`)
   dropdownPanel.classList.add(`added-user-color-${color}`)
