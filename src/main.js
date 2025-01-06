@@ -12,9 +12,8 @@ let userRoom = document.getElementById('userRoom')
 let dropdown = document.getElementById('dropDown')
 let dropdownPanel = document.getElementById('dropdownContent')
 
-
 let newOwner = new Owner()
-
+let newRoom = new Room()
 
 const updateBookCount = () => {
   let savedBooks = newOwner.bookCount;
@@ -25,16 +24,10 @@ const updateBookCount = () => {
   }
 } 
 
-const changeToSelectedColor = (e, color) => {
-
-  //What color the user picks, if the wall is not that color, or does not equal that color, then...
-
-  //remove it from the classlist list?
- 
+const changeToSelectedColor = (color) => {
+  newRoom.addWallColor(color)
 
   const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
-  const dropdownIsColored =  dropdown.classList.contains(`added-user-color-${color}`)
-  const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
 
   if(!leftWallIsColored) {
     userLeftWall.classList.remove(userLeftWall.classList[1])
@@ -42,15 +35,10 @@ const changeToSelectedColor = (e, color) => {
     dropdown.classList.remove(dropdown.classList[1])
   }
 
-
-
   userLeftWall.classList.add(`added-user-color-${color}`)
   userRoom.classList.add(`added-lighter-${color}`)
   dropdownPanel.classList.add(`added-user-color-${color}`)
   dropdown.classList.add(`added-user-color-${color}`)
-
-  //if the color the user picks does not equal the color the wall is currently, remove that color
-  //When the user clicks a new one?
 }
 
 const addSelectedColor = (e) => {
@@ -58,16 +46,16 @@ const addSelectedColor = (e) => {
 
   switch(e.target.id) {
     case 'redWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'blueWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'yellowWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'greenWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
   }
 }
@@ -177,27 +165,27 @@ const selectBook = (e) => {
   }
 }
 
-const loadBooks = () => {
+const loadRoomColor = () => {
+  changeToSelectedColor(newRoom.roomColor)
+}
+
+const loadRoom = () => {
   updateBookCount()
   loadShelves()
+  loadRoomColor()
 }
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
   hideRemoveButton()
-  loadBooks()
+  updateBookCount()
+  loadShelves()
 }
 
-window.onload = loadBooks()
+window.onload = loadRoom()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
 dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
-
-//If I want to have a functionality that removes the book, what I can do is I can
-//Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
-//that's where I put the isolation for the box shadow.
-//Then, what i do is I check that class, and if that is the one that is clicked, then I remove it.
-
