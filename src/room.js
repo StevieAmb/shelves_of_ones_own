@@ -8,7 +8,7 @@ class Room {
   }
 
   saveColorToStorage = () => {
-    localStorage.setItem('roomColor', this.roomColor)
+    localStorage.setItem('roomColor', JSON.stringify(this.roomColor))
   }
 
   retrieveColorFromStorage = () => {
