@@ -1,6 +1,6 @@
 class Room {
   constructor() {
-    this.roomColor = 'purple'
+    this.roomColor = this.retrieveColorFromStorage() || 'purple'
   }
 
   addWallColor = (color) => {
@@ -8,9 +8,12 @@ class Room {
   }
 
   saveColorToStorage = () => {
-    
+    localStorage.setItem('roomColor', this.roomColor)
   }
 
-  retrieveColorFromStorage
+  retrieveColorFromStorage = () => {
+    let storedColor = JSON.parse(localStorage.getItem('roomColor'))
+    return storedColor;
+  }
   
 }
