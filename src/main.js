@@ -166,7 +166,7 @@ const selectBook = (e) => {
   }
 }
 
-const loadBooks = () => {
+const loadRoom = () => {
   updateBookCount()
   loadShelves()
 }
@@ -174,10 +174,10 @@ const loadBooks = () => {
 const clearBookShelf = () => {
   newOwner.clearShelf()
   hideRemoveButton()
-  loadBooks()
+  loadRoom()
 }
 
-window.onload = loadBooks()
+window.onload = loadRoom()
 addBookButton.addEventListener('click', addBook)
 removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
