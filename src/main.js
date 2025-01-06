@@ -28,10 +28,8 @@ const updateBookCount = () => {
 
 const changeToSelectedColor = (color) => {
   newRoom.addWallColor(color)
-  
+
   const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
-  const dropdownIsColored =  dropdown.classList.contains(`added-user-color-${color}`)
-  const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
 
   if(!leftWallIsColored) {
     userLeftWall.classList.remove(userLeftWall.classList[1])
