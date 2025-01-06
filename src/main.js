@@ -43,21 +43,21 @@ const changeToSelectedColor = (color) => {
   dropdown.classList.add(`added-user-color-${color}`)
 }
 
-const selectColor = (e) => {
+const addSelectedColor = (e) => {
   let selectedColor = e.target.id.substring(0, (e.target.id.length - 9)) //This extracts the color chosen by user
 
   switch(e.target.id) {
     case 'redWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'blueWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'yellowWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
     case 'greenWallColor':
-      changeToSelectedColor(e, selectedColor)
+      changeToSelectedColor(selectedColor)
       break;
   }
 }
@@ -190,7 +190,7 @@ removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
-dropdownPanel.addEventListener('click', (e) => selectColor(e))
+dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
 
 //If I want to have a functionality that removes the book, what I can do is I can
 //Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
