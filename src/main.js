@@ -14,6 +14,7 @@ let dropdownPanel = document.getElementById('dropdownContent')
 
 
 let newOwner = new Owner()
+let newRoom = new Room()
 
 
 const updateBookCount = () => {
@@ -166,15 +167,21 @@ const selectBook = (e) => {
   }
 }
 
+const loadRoomColor = () => {
+  changeToSelectedColor(newRoom.roomColor)
+}
+
 const loadRoom = () => {
   updateBookCount()
   loadShelves()
+  loadRoomColor()
 }
 
 const clearBookShelf = () => {
   newOwner.clearShelf()
   hideRemoveButton()
-  loadRoom()
+  updateBookCount()
+  loadShelves()
 }
 
 window.onload = loadRoom()
