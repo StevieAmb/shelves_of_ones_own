@@ -190,7 +190,7 @@ removeBookButton.addEventListener('click', removeBook)
 addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
-dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
+dropdownPanel.addEventListener('click', (e) => selectColor(e))
 
 //If I want to have a functionality that removes the book, what I can do is I can
 //Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
