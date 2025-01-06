@@ -12,10 +12,8 @@ let userRoom = document.getElementById('userRoom')
 let dropdown = document.getElementById('dropDown')
 let dropdownPanel = document.getElementById('dropdownContent')
 
-
 let newOwner = new Owner()
 let newRoom = new Room()
-
 
 const updateBookCount = () => {
   let savedBooks = newOwner.bookCount;
@@ -191,9 +189,3 @@ addTitleInput.addEventListener('keydown', enableAddBookButton)
 clearShelf.addEventListener('click', clearBookShelf)
 bookshelf.addEventListener('click', (e) => selectBook(e) ) //make this select book
 dropdownPanel.addEventListener('click', (e) => addSelectedColor(e))
-
-//If I want to have a functionality that removes the book, what I can do is I can
-//Add a classlist on click, so that the one that is clicked can have a tag on it, maybe
-//that's where I put the isolation for the box shadow.
-//Then, what i do is I check that class, and if that is the one that is clicked, then I remove it.
-
