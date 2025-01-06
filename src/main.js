@@ -25,13 +25,7 @@ const updateBookCount = () => {
   }
 } 
 
-const changeToSelectedColor = (e, color) => {
-
-  //What color the user picks, if the wall is not that color, or does not equal that color, then...
-
-  //remove it from the classlist list?
- 
-
+const changeToSelectedColor = (color) => {
   const leftWallIsColored = userLeftWall.classList.contains(`added-user-color-${color}`)
   const dropdownIsColored =  dropdown.classList.contains(`added-user-color-${color}`)
   const panelIsColored = dropdownPanel.classList.contains(`added-user-color-${color}`)
@@ -46,12 +40,9 @@ const changeToSelectedColor = (e, color) => {
   userRoom.classList.add(`added-lighter-${color}`)
   dropdownPanel.classList.add(`added-user-color-${color}`)
   dropdown.classList.add(`added-user-color-${color}`)
-
-  //if the color the user picks does not equal the color the wall is currently, remove that color
-  //When the user clicks a new one?
 }
 
-const addSelectedColor = (e) => {
+const selectColor = (e) => {
   let selectedColor = e.target.id.substring(0, (e.target.id.length - 9)) //This extracts the color chosen by user
 
   switch(e.target.id) {

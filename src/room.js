@@ -5,6 +5,7 @@ class Room {
 
   addWallColor = (color) => {
     this.roomColor = color
+    this.saveColorToStorage()
   }
 
   saveColorToStorage = () => {
