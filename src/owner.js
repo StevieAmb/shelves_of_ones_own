@@ -5,7 +5,6 @@ class Owner {
   }
 
   addBook = () => {
-    this.bookCount++
     this.saveBooksToStorage()
   }
 
@@ -28,10 +27,6 @@ class Owner {
     let parsedTitles = ''
     parsedTitles = JSON.parse(localStorage.getItem('titles'))
     return parsedTitles;
-  }
-
-  saveBooksToStorage = () => {
-    localStorage.setItem('numOfBooks', JSON.stringify(this.bookCount));
   }
 
   retrieveBooksFromStorage = () => {
