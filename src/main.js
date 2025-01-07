@@ -106,7 +106,6 @@ const addBookTitle = () => {
   let book = books[books.length - 1]
   newOwner.addTitle(addTitleInput.value.toUpperCase())
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
-  newOwner.titles.push(addTitleInput.value.toUpperCase())
   addTitleInput.value = ""
 }
 
