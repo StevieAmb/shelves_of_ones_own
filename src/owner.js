@@ -5,7 +5,7 @@ class Owner {
   }
 
   addBook = () => {
-    this.bookCount++
+    // this.bookCount++
     this.saveBooksToStorage()
   }
 
