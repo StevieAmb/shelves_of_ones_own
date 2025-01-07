@@ -103,8 +103,8 @@ const addBook = () => {
 const addBookTitle = () => {
   let books = document.querySelectorAll('article')
   let book = books[books.length - 1]
-  newOwner.addTitle(addTitleInput.value.toUpperCase())
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
+  newOwner.addTitle(addTitleInput.value.toUpperCase())
   addTitleInput.value = ""
 }
 
