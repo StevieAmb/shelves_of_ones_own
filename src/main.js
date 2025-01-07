@@ -88,7 +88,6 @@ const loadShelves = () => {
 }
 
 const addBook = () => {
-  addBookTitle()
   let savedBooks = newOwner.bookCount;
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -97,12 +96,16 @@ const addBook = () => {
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
+  addBookTitle()
   updateBookCount()
 }
 
 const addBookTitle = () => {
+  console.log('value', addTitleInput.value.toUpperCase())
   let books = document.querySelectorAll('article')
+  console.log('booka', books)
   let book = books[books.length - 1]
+  console.log(book)
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
   newOwner.addTitle(addTitleInput.value.toUpperCase())
   addTitleInput.value = ""
