@@ -1,7 +1,7 @@
 class Owner {
   constructor(blah) {
-    this.bookCount = this.retrieveBooksFromStorage() || 0;
     this.titles = this.retrieveTitlesFromStorage() || [];
+    this.bookCount = this.titles.length
   }
 
   addBook = () => {
