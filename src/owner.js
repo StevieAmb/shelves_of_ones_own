@@ -4,11 +4,6 @@ class Owner {
     this.bookCount = this.titles.length
   }
 
-  addBook = () => {
-    // this.bookCount++
-    this.saveBooksToStorage()
-  }
-
   removeBook = () => {
     this.bookCount--
     this.saveBooksToStorage()
