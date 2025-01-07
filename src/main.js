@@ -88,7 +88,7 @@ const loadShelves = () => {
 }
 
 const addBook = () => {
-  newOwner.addBook()
+  addBookTitle()
   let savedBooks = newOwner.bookCount;
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -97,7 +97,6 @@ const addBook = () => {
   } else {
     shelfThree.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
   }
-  addBookTitle()
   updateBookCount()
 }
 
