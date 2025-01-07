@@ -17,6 +17,7 @@ class Owner {
   addTitle = (title) => {
     this.titles.push(title)
     this.saveTitlesToStorage()
+    console.log('books', this.titles)
   }
 
   saveTitlesToStorage = () => {
