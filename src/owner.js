@@ -1,12 +1,7 @@
 class Owner {
   constructor(blah) {
-    this.bookCount = this.retrieveBooksFromStorage() || 0;
     this.titles = this.retrieveTitlesFromStorage() || [];
-  }
-
-  addBook = () => {
-    this.bookCount++
-    this.saveBooksToStorage()
+    this.bookCount = this.titles.length
   }
 
   removeBook = () => {
@@ -17,6 +12,7 @@ class Owner {
   addTitle = (title) => {
     this.titles.push(title)
     this.saveTitlesToStorage()
+    console.log('books', this.titles)
   }
 
   saveTitlesToStorage = () => {

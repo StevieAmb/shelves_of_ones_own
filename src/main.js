@@ -88,7 +88,6 @@ const loadShelves = () => {
 }
 
 const addBook = () => {
-  newOwner.addBook()
   let savedBooks = newOwner.bookCount;
   if(savedBooks <= 9) {
     shelfOne.innerHTML += `<article class=${randomizeBook()} tabIndex="0"></article>`
@@ -102,13 +101,20 @@ const addBook = () => {
 }
 
 const addBookTitle = () => {
+  console.log('value', addTitleInput.value.toUpperCase())
   let books = document.querySelectorAll('article')
+  console.log('booka', books)
   let book = books[books.length - 1]
-  newOwner.addTitle(addTitleInput.value.toUpperCase())
+  console.log(book)
   book.innerHTML = `<p>${addTitleInput.value.toUpperCase()}</p>`
-  newOwner.titles.push(addTitleInput.value.toUpperCase())
+  newOwner.addTitle(addTitleInput.value.toUpperCase())
   addTitleInput.value = ""
 }
+
+
+//So, let's see. What can be done is that the book count is the length of the book titles array,
+//And then... when we load the books, we can get the book array, and then iterate to it,
+//And then the title will go in the P of the article.
 
  const enableAddBookButton = () => {
   !addTitleInput.value ? addBookButton.disabled = true : addBookButton.disabled = false
